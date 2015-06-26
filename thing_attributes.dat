@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of attributes possessed by every actor for the
+      game system. The display order of attributes is controlled via the assignment of
+      an "explicit" tag with the relative position of each.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Sample Attribute
+  -->
+  <thing
+    id="attrCom"
+    name="Communication"
+    compset="Attribute"
+    isunique="yes"
+    description="Communication covers your character’s social skills, personal interactions, and ability to deal with others.">
+    <fieldval field="trtAbbrev" value="Com"/>
+    <tag group="explicit" tag="1"/>
+    </thing>
+
+  <!-- Strength Attribute
+        NOTE! We include the Strength attribute because the minimum strength
+              requirement mechanisms for weapons and armor rely upon it.
+  -->
+  <thing
+    id="attrCon"
+    name="Constitution"
+    compset="Attribute"
+    isunique="yes"
+    description="Constitution is your character's fortitude and resistance to harm.">
+    <fieldval field="trtAbbrev" value="Con"/>
+    <tag group="explicit" tag="2"/>
+    </thing>
+    
+  <thing
+    id="attrCun"
+    name="Cunning"
+    compset="Attribute"
+    isunique="yes"
+    description="Cunning is a measure of your character's intelligence, knowledge, and education.">
+    <fieldval field="trtAbbrev" value="Cun"/>
+    <tag group="explicit" tag="3"/>
+    </thing>
+    
+  <thing
+    id="attrDexr"
+    name="Dexterity"
+    compset="Attribute"
+    isunique="yes"
+    description="Dexterity encompasses agility, hand-eye coordination, and quickness">
+    <fieldval field="trtAbbrev" value="Dex"/>
+    <tag group="explicit" tag="4"/>
+    </thing>
+    
+  <thing
+    id="attrMag"
+    name="Magic"
+    compset="Attribute"
+    isunique="yes"
+    description="Magic determines your charcter's innate arcane power.">
+    <fieldval field="trtAbbrev" value="Mag"/>
+    <tag group="explicit" tag="5"/>
+    </thing>
+    
+  <thing
+    id="attrPer"
+    name="Perception"
+    compset="Attribute"
+    isunique="yes"
+    description="Perception covers all the senses and the ability to interpret sensory data.">
+    <fieldval field="trtAbbrev" value="Per"/>
+    <tag group="explicit" tag="6"/>
+    </thing>
+
+  <thing
+    id="attrStr"
+    name="Strength"
+    compset="Attribute"
+    isunique="yes"
+    description="Strength is your character's physical power.">
+    <fieldval field="trtAbbrev" value="Str"/>
+    <tag group="explicit" tag="7"/>
+    </thing>
+
+  <thing
+    id="attrWill"
+    name="Willpower"
+    compset="Attribute"
+    isunique="yes"
+    description="Willpower encompasses mental toughness, discipline, and confidence.">
+    <fieldval field="trtAbbrev" value="Str"/>
+    <tag group="explicit" tag="8"/>
+    </thing>    
+
+  </document>
