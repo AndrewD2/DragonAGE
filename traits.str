@@ -47,7 +47,7 @@
       usedelta="yes"
       maxfinal="50">
       <!-- Bound the user value to the limits established for the trait -->
-      <bound phase="Traits" priority="1000" name="Bound trtUser">
+      <bound phase="Attr" priority="1000" name="Bound trtUser">
         <before name="Calc trtFinal"/><![CDATA[
         @minimum = field[trtMinimum].value
         @maximum = field[trtMaximum].value
@@ -85,7 +85,7 @@
       name="Final Value"
       type="derived">
       <!-- Calculate the final value from the three distinct pieces -->
-      <calculate phase="Traits" priority="3000" name="Calc trtFinal"><![CDATA[
+      <calculate phase="Attr" priority="3000" name="Calc trtFinal"><![CDATA[
         ~Note! If you change this calculation, you may need to change the similar
         ~       calculation in the "Derived" component.
         @value = field[trtUser].value + field[trtBonus].value + field[trtInPlay].value
@@ -129,7 +129,7 @@
       
       <!-- Calculate the final value from the three distinct pieces -->
       <calculate phase="Initialize" priority="3000" name="IsPrimary?"><![CDATA[
-        @value = tagis[AttrType.Primary]
+        @value = this.intersect[IsAttr,AttrPrim]
         ]]></calculate>
       </field>
       
@@ -147,7 +147,7 @@
       ]]></eval>
 
     <!-- Each attribute point above one that is allocated by the user costs 7 CP -->
-    <eval index="2" phase="Traits" priority="10000">
+    <eval index="2" phase="Attr" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound trtUser"/><![CDATA[
       hero.child[resCP].field[resSpent].value += (field[trtUser].value - 1) * 7
@@ -196,7 +196,7 @@
       ]]></eval>
 
     <!-- Each skill point that is allocated by the user costs 2 CP -->
-    <eval index="2" phase="Traits" priority="10000">
+    <eval index="2" phase="Attr" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound trtUser"/><![CDATA[
       ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
@@ -296,7 +296,7 @@
         calculation and BEFORE this derived calculation. We can also omit any "user"
         value from the calculation since derived traits have no user-defined facet.
         -->
-    <eval index="1" phase="Traits" priority="6000" name="Derived trtFinal"><![CDATA[
+    <eval index="1" phase="Attr" priority="6000" name="Derived trtFinal"><![CDATA[
       field[trtFinal].value = field[trtBonus].value + field[trtInPlay].value
       ]]></eval>
 
@@ -341,24 +341,19 @@
   <component
     id="Background"
     name="Background"
-    autocompset="no">
+    autocompset="yes">
     
     <identity group="Background" />
     
     </component>
     
-  <component
-    id="AbilAdvPri"
-    name="Ability Advancement Primary"
-    autocompset="no">
-    
-    
-    </component>
     
   <component
-    id="AbilAdvSec"
-    name="Ability Advancement Secondary"
-    autocompset="no">
+    id="AbiAdvance"
+    name="Ability Advancement"
+    autocompset="yes">
+    
+    <identity group="AttrUse" />
     
     
     </component>    
@@ -410,6 +405,7 @@
     forceunique="yes">
     <compref component="Race"/>
     </compset>
+    
 
 
   </document>

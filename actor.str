@@ -30,6 +30,50 @@
       defvalue="2">
       </field>
 
+    <field
+      id="acTotLevel"
+      name="Total Level"
+      type="derived">
+      
+      </field>      
+      
+    <field
+      id="acPrimAdv"
+      name="Primary Advancements"
+      type="derived">
+      
+      <calculate phase="PostLevels" priority="1000" name="Calc Prim Adv"><![CDATA[
+      @value = round(field[acTotLevel].value/2,0,-1)
+      ]]></calculate>
+      
+      </field>
+    
+    <field
+      id="acSecAdv"
+      name="Secondary Advancements"
+      type="derived">
+      
+      <calculate phase="PostLevels" priority="1000" name="Calc Sec Adv"><![CDATA[
+      var x as number
+      x = field[acTotLevel].value - 1
+      @value = round(x/2,0,-1)
+      ]]></calculate>
+      </field>
+      
+
+    <!-- Bonus health for the actor -->
+    <field
+      id="acHPBonus"
+      name="Bonus Health"
+      type="derived">
+      <!-- Calculate any health bonus that the actor receives from other sources.
+      -->
+      <calculate phase="Attr" priority="5000" name="Calc acHPBonus"><![CDATA[
+        ~.... add any suitable code here to calculate this for the game system ....
+        @value = 0
+        ]]></calculate>
+      </field>
+      
     <!-- Minimum (starting) health for the actor -->
     <field
       id="acHPMin"
@@ -41,23 +85,10 @@
             for derived traits, since derived traits may be influenced by the net health
             (e.g. attack penalties after taking sufficient damage).
       -->
-      <calculate phase="Traits" priority="5000" name="Calc acHPMin"><![CDATA[
+      <calculate phase="Attr" priority="5000" name="Calc acHPMin"><![CDATA[
         @value = #traitbonus[trHealth] + #traitinplay[trHealth]
         ]]></calculate>
-      </field>
-
-    <!-- Bonus health for the actor -->
-    <field
-      id="acHPBonus"
-      name="Bonus Health"
-      type="derived">
-      <!-- Calculate any health bonus that the actor receives from other sources.
-      -->
-      <calculate phase="Traits" priority="5000" name="Calc acHPBonus"><![CDATA[
-        ~.... add any suitable code here to calculate this for the game system ....
-        @value = 0
-        ]]></calculate>
-      </field>
+      </field>      
 
     <!-- Maximum health for the actor -->
     <field
@@ -66,7 +97,7 @@
       type="derived">
       <!-- Calculate the maximum health for the actor as the minimum plus any bonus.
       -->
-      <calculate phase="Traits" priority="5002" name="Calc acHPMax">
+      <calculate phase="Attr" priority="5002" name="Calc acHPMax">
         <after name="Calc acHPMin"/>
         <after name="Calc acHPBonus"/><![CDATA[
         @value = field[acHPMin].value + field[acHPBonus].value
@@ -81,7 +112,7 @@
       <!-- Calculate the current health for the actor based on the maximum and any
             actual damage that has been sustained.
       -->
-      <calculate phase="Traits" priority="5100" name="Calc acHPNow">
+      <calculate phase="Attr" priority="5100" name="Calc acHPNow">
         <after name="Calc acHPMax"/><![CDATA[
         @value = field[acHPMax].value - hero.usagepool[DmgNet].value
         ]]></calculate>
@@ -97,7 +128,7 @@
             For example, if the actor has sustained enough damage, he might suffer
             penalties on attack roles.
       -->
-      <calculate phase="Traits" priority="5200" name="Calc acHPPenal">
+      <calculate phase="Attr" priority="5200" name="Calc acHPPenal">
         <after name="Calc acHPNow"/><![CDATA[
         ~for our example, once an actor is down to 25% of health or less, a -1 is
         ~incurred on all attacks

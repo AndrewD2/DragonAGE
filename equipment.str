@@ -555,7 +555,7 @@
       ]]></eval>
 
     <!-- Apply effects of the equipped armor/shield -->
-    <eval index="2" phase="PreTraits" priority="5000">
+    <eval index="2" phase="PreAttr" priority="5000">
       <before name="Calc trtFinal"/>
       <after name="Equipped"/><![CDATA[
       ~if this gear is not equipped, skip it
@@ -588,6 +588,18 @@
     id="Armor"
     name="Armor"
     autocompset="no">
+    
+    <field
+      id="arBonus"
+      name="Armor Bonus"
+      type="derived">
+      </field>
+      
+    <field
+      id="arPenalty"
+      name="Armor Penalty"
+      type="derived">
+      </field>
 
     <!-- Each piece of armor needs its own identity tag to detect multiple pieces being equipped -->
     <identity group="Armor"/>

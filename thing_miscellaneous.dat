@@ -106,6 +106,37 @@
       ]]></eval>
 
     </thing>
+    
+  <thing
+    id="resPrimAdv"
+    name="Primary Advancement"
+    compset="Resource">
+    <fieldval field="resObject" value="PrimAdv"/>
+    
+    <tag group="Helper" tag="Bootstrap"/>
+    
+    <eval index="1" phase="PostLevels" priority="2000">
+    <![CDATA[
+    field[resMax].value = herofield[acPrimAdv].value
+    ]]></eval>
+    
+    </thing>
+    
+  <thing
+    id="resSecAdv"
+    name="Secondary Advancement"
+    compset="Resource">
+    <fieldval field="resObject" value="SecAdv"/>
+    
+    <tag group="Helper" tag="Bootstrap"/>
+    
+    <eval index="1" phase="PostLevels" priority="2000">
+    <![CDATA[
+    field[resMax].value = herofield[acSecAdv].value
+    ]]></eval>
+    
+    </thing>    
+    
 
 
   <!-- Power points tracker so the user can manage the expenditure of power points -->

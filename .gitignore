@@ -34,3 +34,6 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+# Files created during compilation in Hero Lab
+*.hlz

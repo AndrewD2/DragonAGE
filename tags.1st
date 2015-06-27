@@ -315,9 +315,20 @@
     </group>
     
   <group
-    id="AttrType">
-    <value id="Primary"/>      <!-- identifies attribute as primary -->
-    <value id="Secondary" />    <!-- identifies attribute as secondary -->
+    id="IsAttr"
+    dynamic="yes">
+    </group>
+    
+  <group
+    id="AttrPrim"
+    dynamic="yes"
+    inherit="IsAttr">
+    </group>
+    
+  <group
+    id="AttrSec"
+    dynamic="yes"
+    inherit="IsAttr">
     </group>
     
   <group
@@ -333,6 +344,20 @@
     minvalue="1"
     maxvalue="12">
     </group>    
+    
+  <group
+    id="ArmorBonus"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="20">
+    </group>  
+
+  <group
+    id="ArmorPen"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="20">
+    </group>     
 
 
   </document>

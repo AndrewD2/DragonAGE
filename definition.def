@@ -17,7 +17,7 @@
 
   <game
     game="Dragon AGE"
-    publisher="TBD"
+    publisher="Green Ronin"
     website="http://www.domain.com/"
     copyright="TBD"
     legaloutput="TBD">
@@ -28,9 +28,9 @@
   -->
 
   <author
-    author="TBD"
-    email="name@domain.com"
-    website="www.domain.com">
+    author="Andrew Betts"
+    email="andrew@andrewd2.com"
+    website="www.andrewd2.com">
     </author>
 
   <!-- The "release" element specifies the details for each new revision of the data
@@ -226,19 +226,43 @@ These data files provide a starting framework for implementing support for any g
     name="Effects"
     description="Apply derived effects that influence equipment modifiers and the like">
     </phase>
+    
+  <phase
+    id="PreLevels"
+    name="Pre-Levels"
+    description="Adjustments made before levels are set.">
+    </phase>
 
   <phase
-    id="PreTraits"
-    name="Pre-Traits"
-    description="Adjustments to traits before they are finalized">
+    id="Levels"
+    name="Levels"
+    description="Finalization of levels set here">
+    </phase>
+
+  <phase
+    id="PostLevels"
+    name="Post-Levels"
+    description="Anything relying on level should done during this phase or later">
+    </phase>    
+
+  <phase
+    id="PreAttr"
+    name="Pre-Attributes"
+    description="Adjustments to attributes before they are finalized">
     </phase>
 
   <!-- NOTE! All Health calculations are assumed to occur within the 5000-5999 priority range during this phase. -->
   <phase
-    id="Traits"
-    name="Traits"
+    id="Attr"
+    name="Attributes"
     description="Finalization of trait values">
     </phase>
+    
+  <phase
+    id="PostAttr"
+    name="Post-Attributes"
+    description="Final values of Attributes have been set">
+    </phase>    
 
   <phase
     id="Final"

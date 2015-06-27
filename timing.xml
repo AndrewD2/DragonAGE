@@ -11,6 +11,8 @@
   <name name="Assign Dynamic Tagexpr" full="Component Advance: Assign Dynamic Tagexpr"/>
   <name name="Assign SpecialTab" full="Component SpecialTab: Assign SpecialTab"/>
   <name name="Bound trtUser" full="Field trtUser: Bound trtUser"/>
+  <name name="Calc Prim Adv" full="Field acPrimAdv: Calc Prim Adv"/>
+  <name name="Calc Sec Adv" full="Field acSecAdv: Calc Sec Adv"/>
   <name name="Calc XP Max" full="Thing resXP: Calc XP Max"/>
   <name name="Calc acHPBonus" full="Field acHPBonus: Calc acHPBonus"/>
   <name name="Calc acHPMax" full="Field acHPMax: Calc acHPMax"/>
@@ -40,80 +42,80 @@
     <before name="Component WeapRange: Calc wpNetAtk" phase="Final" priority="7000"/>
     </depends>
   <depends name="Thing adjAttr: Eval Script #1" phase="Setup" priority="8000">
-    <before name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+    <before name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
   <depends name="Thing adjCP: Eval Script #1" phase="Setup" priority="8000">
     <before name="Component WeapRange: Calc wpNetAtk" phase="Final" priority="7000"/>
     </depends>
   <depends name="Thing adjDerived: Eval Script #1" phase="Setup" priority="8000">
-    <before name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+    <before name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
   <depends name="Thing adjPower: Eval Script #1" phase="Setup" priority="8000">
     <before name="Component WeapRange: Calc wpNetAtk" phase="Final" priority="7000"/>
     </depends>
   <depends name="Thing adjSkill: Eval Script #1" phase="Setup" priority="8000">
-    <before name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+    <before name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
   <depends name="Thing adjWeapon: Eval Script #1" phase="Setup" priority="8000">
     <before name="Component WeapRange: Calc wpNetAtk" phase="Final" priority="7000"/>
     </depends>
-  <depends name="Component Defense: Eval Script #2" phase="Pre-Traits" priority="5000">
-    <before name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Component Defense: Eval Script #2" phase="Pre-Attributes" priority="5000">
+    <before name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     <after name="Component Equippable: Equipped" phase="Initialization" priority="5000"/>
     </depends>
-  <depends name="Field trtUser: Bound trtUser" phase="Traits" priority="1000">
-    <before name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Field trtUser: Bound trtUser" phase="Attributes" priority="1000">
+    <before name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Thing trDefense: Eval Script #1" phase="Traits" priority="4000">
-    <before name="Component Derived: Derived trtFinal" phase="Traits" priority="6000"/>
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Thing trDefense: Eval Script #1" phase="Attributes" priority="4000">
+    <before name="Component Derived: Derived trtFinal" phase="Attributes" priority="6000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Thing trHealth: Eval Script #1" phase="Traits" priority="4000">
-    <before name="Component Derived: Derived trtFinal" phase="Traits" priority="6000"/>
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Thing trHealth: Eval Script #1" phase="Attributes" priority="4000">
+    <before name="Component Derived: Derived trtFinal" phase="Attributes" priority="6000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Thing trInit: Eval Script #1" phase="Traits" priority="4000">
-    <before name="Component Derived: Derived trtFinal" phase="Traits" priority="6000"/>
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Thing trInit: Eval Script #1" phase="Attributes" priority="4000">
+    <before name="Component Derived: Derived trtFinal" phase="Attributes" priority="6000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Thing trPowerPts: Eval Script #1" phase="Traits" priority="4000">
-    <before name="Component Derived: Derived trtFinal" phase="Traits" priority="6000"/>
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Thing trPowerPts: Eval Script #1" phase="Attributes" priority="4000">
+    <before name="Component Derived: Derived trtFinal" phase="Attributes" priority="6000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Thing trResist: Eval Script #1" phase="Traits" priority="4000">
-    <before name="Component Derived: Derived trtFinal" phase="Traits" priority="6000"/>
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Thing trResist: Eval Script #1" phase="Attributes" priority="4000">
+    <before name="Component Derived: Derived trtFinal" phase="Attributes" priority="6000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Thing trSample: Eval Script #1" phase="Traits" priority="4000">
-    <before name="Component Derived: Derived trtFinal" phase="Traits" priority="6000"/>
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+  <depends name="Thing trSample: Eval Script #1" phase="Attributes" priority="4000">
+    <before name="Component Derived: Derived trtFinal" phase="Attributes" priority="6000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
-  <depends name="Field acHPMax: Calc acHPMax" phase="Traits" priority="5002">
-    <after name="Field acHPBonus: Calc acHPBonus" phase="Traits" priority="5000"/>
-    <after name="Field acHPMin: Calc acHPMin" phase="Traits" priority="5000"/>
+  <depends name="Field acHPMax: Calc acHPMax" phase="Attributes" priority="5002">
+    <after name="Field acHPBonus: Calc acHPBonus" phase="Attributes" priority="5000"/>
+    <after name="Field acHPMin: Calc acHPMin" phase="Attributes" priority="5000"/>
     </depends>
-  <depends name="Field acHPNow: Calc acHPNow" phase="Traits" priority="5100">
-    <after name="Field acHPMax: Calc acHPMax" phase="Traits" priority="5002"/>
+  <depends name="Field acHPNow: Calc acHPNow" phase="Attributes" priority="5100">
+    <after name="Field acHPMax: Calc acHPMax" phase="Attributes" priority="5002"/>
     </depends>
-  <depends name="Field acHPPenal: Calc acHPPenal" phase="Traits" priority="5200">
-    <after name="Field acHPNow: Calc acHPNow" phase="Traits" priority="5100"/>
+  <depends name="Field acHPPenal: Calc acHPPenal" phase="Attributes" priority="5200">
+    <after name="Field acHPNow: Calc acHPNow" phase="Attributes" priority="5100"/>
     </depends>
-  <depends name="Component Attribute: Eval Script #2" phase="Traits" priority="10000">
+  <depends name="Component Attribute: Eval Script #2" phase="Attributes" priority="10000">
     <before name="Field resLeft: Calc resLeft" phase="Final" priority="1000"/>
-    <after name="Field trtUser: Bound trtUser" phase="Traits" priority="1000"/>
+    <after name="Field trtUser: Bound trtUser" phase="Attributes" priority="1000"/>
     </depends>
-  <depends name="Component Skill: Eval Script #2" phase="Traits" priority="10000">
+  <depends name="Component Skill: Eval Script #2" phase="Attributes" priority="10000">
     <before name="Field resLeft: Calc resLeft" phase="Final" priority="1000"/>
-    <after name="Field trtUser: Bound trtUser" phase="Traits" priority="1000"/>
+    <after name="Field trtUser: Bound trtUser" phase="Attributes" priority="1000"/>
     </depends>
   <depends name="Component Equippable: Eval Script #3" phase="Final" priority="5000">
     <before name="Thing valHands: Check Hands" phase="Validation" priority="8000"/>
     </depends>
   <depends name="Field sklRoll: Calculate (Net Skill Roll)" phase="Final" priority="5000">
-    <after name="Field trtFinal: Calc trtFinal" phase="Traits" priority="3000"/>
+    <after name="Field trtFinal: Calc trtFinal" phase="Attributes" priority="3000"/>
     </depends>
   <depends name="Field acHPSumm: Calculate (Health Summary)" phase="Render" priority="1000">
-    <after name="Field acHPNow: Calc acHPNow" phase="Traits" priority="5100"/>
+    <after name="Field acHPNow: Calc acHPNow" phase="Attributes" priority="5100"/>
     </depends>
   <depends name="Thing advAbility: Eval Script #1" phase="Render" priority="1000">
     <before name="Component Advance: Assign Dynamic Tagexpr" phase="Render" priority="2000"/>
@@ -236,13 +238,27 @@
         </task>
       </priority>
     </phase>
-  <phase phase="Pre-Traits (3)">
+  <phase phase="Post-Levels (5)">
+    <priority priority="1000">
+      <task name="Field acPrimAdv: Calc Prim Adv">
+        </task>
+      <task name="Field acSecAdv: Calc Sec Adv">
+        </task>
+      </priority>
+    <priority priority="2000">
+      <task name="Thing resPrimAdv: Eval Script #1">
+        </task>
+      <task name="Thing resSecAdv: Eval Script #1">
+        </task>
+      </priority>
+    </phase>
+  <phase phase="Pre-Attributes (6)">
     <priority priority="5000">
       <task name="Component Defense: Eval Script #2">
         </task>
       </priority>
     </phase>
-  <phase phase="Traits (4)">
+  <phase phase="Attributes (7)">
     <priority priority="1000">
       <task name="Field trtUser: Bound trtUser">
         </task>
@@ -294,7 +310,7 @@
         </task>
       </priority>
     </phase>
-  <phase phase="Final (5)">
+  <phase phase="Final (9)">
     <priority priority="1000">
       <task name="Field resLeft: Calc resLeft">
         </task>
@@ -332,7 +348,7 @@
         </task>
       </priority>
     </phase>
-  <phase phase="Validation (6)">
+  <phase phase="Validation (10)">
     <priority priority="5000">
       <task name="Component Resource: Eval Rule #1">
         </task>
@@ -376,7 +392,7 @@
         </task>
       </priority>
     </phase>
-  <phase phase="Render (7)">
+  <phase phase="Render (11)">
     <priority priority="500">
       <task name="Component Domain: Eval Script #1">
         </task>
