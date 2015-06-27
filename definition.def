@@ -108,6 +108,10 @@ These data files provide a starting framework for implementing support for any g
     param1="trait"
     result="hero.child[#trait].field[trtFinal].value"/>
   <scriptmacro
+    name="attrvalue"
+    param1="attr"
+    result="hero.child[#attr].field[trtFinal].value"/>    
+  <scriptmacro
     name="traitfound"
     param1="trait"
     result="hero.childfound[#trait].field[trtFinal].value"/>
@@ -147,6 +151,22 @@ These data files provide a starting framework for implementing support for any g
     name="trkmax"
     param1="tracker"
     result="hero.child[#tracker].field[trkMax].value"/>
+  <scriptmacro
+    name="hasspell"
+    param1="spell"
+    result="hero.tagis[HasSpell.#spell]" />
+  <scriptmacro
+    name="hasstunt"
+    param1="stunt"
+    result="hero.tagis[HasStunt.#stunt]" /> 
+  <scriptmacro
+    name="hasspec"
+    param1="spec"
+    result="hero.tagis[HasStunt.#spec]" />
+  <scriptmacro
+    name="hastalent"
+    param1="talent"
+    result="hero.tagis[HasStunt.#talent]" />       
 
   <!-- Decoration character used in summary panel headertitle scripts -->
   <scriptmacro

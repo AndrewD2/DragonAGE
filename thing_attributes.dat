@@ -44,7 +44,7 @@
     </thing>
     
   <thing
-    id="attrDexr"
+    id="attrDex"
     name="Dexterity"
     compset="Attribute"
     isunique="yes"

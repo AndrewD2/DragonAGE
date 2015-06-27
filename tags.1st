@@ -72,6 +72,7 @@
     <value id="NoDamage"/>    <!-- Indicates no damage history exists for the hero -->
     <value id="Hand"/>        <!-- Each tag indicates one hand worth of weapons equipped -->
     <value id="RerollInit"/>  <!-- Indicates that the hero can re-roll initiative values -->
+    <value id="Caster" />
     </group>
 
   <!-- DashTacCon group - behaviors associated with the Dashboard and/or Tactical Console
@@ -334,14 +335,14 @@
   <group
     id="backTblMin"
     sequence="idvalue"
-    minvalue="1"
+    minvalue="2"
     maxvalue="12">
     </group>
     
   <group
     id="backTblMax"
     sequence="idvalue"
-    minvalue="1"
+    minvalue="2"
     maxvalue="12">
     </group>    
     
@@ -357,7 +358,138 @@
     sequence="idvalue"
     minvalue="0"
     maxvalue="20">
-    </group>     
+    </group>
+    
+  <group
+    id="ArmCastStr"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="10">
+    </group>
 
+  <group
+    id="BaseSpeed"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="100">
+    </group>
 
+  <group
+    id="wWepGroup"
+    dynamic="yes">
+    <value id="wBowsGrp" name="Bows Group" />
+    <value id="wAxesGrp" name="Axes Group" />
+    <value id="wBludGrp" name="Bludgeons Group" />
+    <value id="wBrawGrp" name="Brawling Group" />
+    <value id="wDuelGrp" name="Dueling Group" />
+    <value id="wHvyBGrp" name="Heavy Blades Group" />
+    <value id="wLgtBGrp" name="Light Blades Group" />
+    <value id="wLancGrp" name="Lances Group" />
+    <value id="wPoleGrp" name="Polearms Group" />
+    <value id="wSpeaGrp" name="Spears Group" />
+    <value id="wStavGrp" name="Staves Group" />
+    </group>
+    
+  <group
+    id="StuntType"
+    dynamic="yes">
+    <value id="Spell" name="Spell Stunt" />
+    <value id="Combat" name="Combat Stunt" />
+    <value id="Explore" name="Exploration Stunt" />
+    <value id="Roleplay" name="Roleplaying Stunt" />
+    </group>
+    
+  <group
+    id="SplSchool"
+    dynamic="yes">
+    <value id="Creation" />
+    <value id="Entropy" />
+    <value id="Primal" />
+    <value id="Spirit" />
+    <value id="Blood" />
+    </group>
+    
+  <group
+    id="SplType"
+    dynamic="yes">
+    <value id="Attack" />
+    <value id="Defense" />
+    <value id="Enhance" name="Enhancement"/>
+    <value id="Utility" />
+    </group>
+    
+  <group
+    id="SplCastTm"
+    dynamic="yes">
+    <value id="Major" name="Major Action" />
+    <value id="Minor" name="Minor Action" />
+    </group>
+    
+  <group
+    id="SplManaCst"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="100">
+    <value id="Plus" name="+" />
+    </group>
+    
+  <group
+    id="SplTargNum"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="100">
+    </group>
+    
+  <group
+    id="SplTest"
+    dynamic="yes">
+    <value id="None" />
+    </group>
+    
+  <group
+    id="ClSpecWhen"
+    sequence="idvalue"
+    minvalue="1"
+    maxvalue="20">
+    </group>
+    
+  <group
+    id="StuntCost"
+    sequence="idvalue"
+    minvalue="0"
+    maxvalue="100">
+    <value id="Plus" name="+" />
+    </group>    
+    
+  <group
+    id="Selection"
+    dynamic="yes">
+    <value id="None" />
+    </group>
+    
+  <group
+    id="TalentLev">
+    <value id="Novice" />
+    <value id="Journeyman" />
+    <value id="Master" />
+    </group>
+    
+  <group
+    id="Language"
+    dynamic="yes">
+    </group>
+    
+  <group
+    id="CanRead"
+    dynamic="yes"
+    inherit="Language">
+    </group>
+    
+  <group
+    id="CanSpeak"
+    dynamic="yes"
+    inherit="Language">
+    </group>   
+    
+    
   </document>

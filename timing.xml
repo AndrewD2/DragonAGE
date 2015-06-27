@@ -153,6 +153,18 @@
       <task name="Component AdvDetails: Eval Script #1">
         </task>
       </priority>
+    <priority priority="200">
+      <task name="Component Background: Eval Script #1">
+        </task>
+      <task name="Component Language: Eval Script #1">
+        </task>
+      <task name="Field stPoints: Calculate (Stunt Points)">
+        </task>
+      </priority>
+    <priority priority="400">
+      <task name="Component Class: Eval Script #1">
+        </task>
+      </priority>
     <priority priority="1000">
       <task name="Thing resXP: Calc XP Max">
         </task>
@@ -195,6 +207,8 @@
       <task name="Component Armor: Equip Armor">
         </task>
       <task name="Component Shield: Equip Shield">
+        </task>
+      <task name="Field rBaseSpeed: Calculate (Base Speed)">
         </task>
       </priority>
     <priority priority="8000">
@@ -249,6 +263,12 @@
       <task name="Thing resPrimAdv: Eval Script #1">
         </task>
       <task name="Thing resSecAdv: Eval Script #1">
+        </task>
+      <task name="Thing resTalents: Eval Script #1">
+        </task>
+      </priority>
+    <priority priority="5000">
+      <task name="Thing resSpec: Eval Script #1">
         </task>
       </priority>
     </phase>
@@ -310,6 +330,14 @@
         </task>
       </priority>
     </phase>
+  <phase phase="Post-Attributes (8)">
+    <priority priority="5000">
+      <task name="Field acSpeed: Calculate (Speed)">
+        </task>
+      <task name="Field cHPBonus: Calculate (Hit Points Bonus)">
+        </task>
+      </priority>
+    </phase>
   <phase phase="Final (9)">
     <priority priority="1000">
       <task name="Field resLeft: Calc resLeft">
@@ -345,6 +373,18 @@
       </priority>
     <priority priority="10000">
       <task name="Component Advance: Eval Script #6">
+        </task>
+      </priority>
+    <priority priority="15000">
+      <task name="Field acDefense: Calculate (Defense)">
+        </task>
+      </priority>
+    <priority priority="99999999">
+      <task name="Component Specialize: Eval Script #1">
+        </task>
+      <task name="Component Spell: Eval Script #1">
+        </task>
+      <task name="Component Talent: Eval Script #1">
         </task>
       </priority>
     </phase>

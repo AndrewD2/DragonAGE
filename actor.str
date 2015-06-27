@@ -72,7 +72,7 @@
         ~.... add any suitable code here to calculate this for the game system ....
         @value = 0
         ]]></calculate>
-      </field>
+      </field>  
       
     <!-- Minimum (starting) health for the actor -->
     <field
@@ -173,6 +173,33 @@
           endif
         ]]></finalize>
       </field>
+      
+    <field
+      id="acDefense"
+      name="Defense"
+      type="derived">
+      
+      <calculate phase="Final" priority="15000"><![CDATA[
+      @value += 10 + #attrvalue[attrDex] + field[acShield].value
+      ]]></calculate>
+      </field>
+      
+    <field
+      id="acShield"
+      name="Sheild Bonus"
+      type="derived">
+      </field>
+    
+    <field
+      id="acSpeed"
+      name="Speed"
+      type="derived">
+      
+      <calculate phase="PostAttr" priority="5000"><![CDATA[
+      @value += #attrvalue[attrDex]
+      ]]></calculate>
+      </field>
+     
 
     <!-- Power point summary for display -->
     <field

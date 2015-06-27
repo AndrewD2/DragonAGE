@@ -50,7 +50,7 @@
     isunique="yes"
     description="Description goes here">
     <fieldval field="trtAbbrev" value="Sht"/>
-    <!-- <link linkage="attribute" thing="attrCom"/>  -->
+    <!--    <link linkage="attribute" thing="attrCom"/>  -->
     </thing>
 
 

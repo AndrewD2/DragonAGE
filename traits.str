@@ -310,6 +310,16 @@
     id="Race"
     name="Race"
     autocompset="no">
+    
+    <field
+      id="rBaseSpeed"
+      name="Base Speed"
+      type="derived">
+      
+      <calculate phase="Setup" priority="5000"><![CDATA[
+      @value = tagvalue[BaseSpeed.?]
+      ]]></calculate>
+      </field>
 
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Race"/>
@@ -345,6 +355,10 @@
     
     <identity group="Background" />
     
+    <eval index="1" phase="Setup" priority="200"><![CDATA[
+    perform forward[AllowClass.?]
+    ]]></eval>
+    
     </component>
     
     
@@ -357,6 +371,170 @@
     
     
     </component>    
+    
+  <component
+    id="Class"
+    name="Class"
+    autocompset="no">
+    
+    <field
+      id="startHP"
+      type="static"
+      name="Starting HP">
+      </field>
+      
+    <field
+      id="manaPts"
+      type="derived"
+      name="Mana Points">
+      
+      </field>    
+    
+    <identity group="Class" />
+    <identity group="ClassReq" />
+    <identity group="AllowClass" />
+    
+    <eval index="1" phase="Setup" priority="400"><![CDATA[
+    perform forward[Class.?]
+    ]]></eval>
+    
+    </component>
+    
+  <component
+    id="ClassLvl"
+    name="Class Level"
+    autocompset="no">
+    
+    <field
+      id="cHP"
+      name="Hit Points"
+      type="user"
+      defvalue="0">
+      </field>
+      
+    <field
+      id="cHPBonus"
+      name="Hit Points Bonus"
+      type="derived"
+      defvalue="0">
+      
+      <calculate phase="PostAttr" priority="5000"><![CDATA[
+      @value += #attrvalue[attrCon]
+      ]]></calculate>
+      </field>      
+
+    <field
+      id="cMP"
+      name="Mana Points"
+      type="user"
+      defvalue="0">
+      </field>      
+    
+    </component>
+    
+  <component
+    id="ClassTrk"
+    name="Class Trick"
+    autocompset="no">
+    
+    <identity group="ClassTrk" />
+    </component>
+    
+  <component
+    id="Spell"
+    name="Spell"
+    autocompset="no">
+    
+    <identity group="HasSpell" />
+    <identity group="Spell" />
+    
+    <eval index="1" phase="Final" priority="99999999"><![CDATA[
+    perform forward[HasSpell.?]
+    ]]></eval>
+    </component>
+    
+  <component
+    id="Specialize"
+    name="Specialization"
+    autocompset="no">
+    
+    <identity group="HasSpec" />
+    <identity group="Specialize" />
+    
+    <eval index="1" phase="Final" priority="99999999"><![CDATA[
+    perform forward[HasSpec.?]
+    ]]></eval>
+    </component>
+
+  <component
+    id="Talent"
+    name="Talent"
+    autocompset="no">
+    
+    <identity group="HasTalent" />
+    <identity group="Talent" />
+    
+    <eval index="1" phase="Final" priority="99999999"><![CDATA[
+    perform forward[HasTalent.?]
+    ]]></eval>
+    </component>     
+
+  <component
+    id="ClsStunt"
+    name="Class Stunt"
+    autocompset="no">
+    
+    <field
+      id="stPoints"
+      name="Stunt Points"
+      type="derived">
+      
+      <calculate phase="Setup" priority="200"><![CDATA[
+      @value = tagvalue[StuntCost.?]
+      ]]></calculate>
+      </field>
+      
+    <field
+      id="ClsStuntFi"
+      name="Stunt Final"
+      maxfinal="5">
+      
+      <finalize><![CDATA[
+      if (tagis[StuntCost.Plus] <> 0) then
+        @text = field[stPoints].value & "+"
+      else
+        @text = field[stPoints].value
+        endif
+      ]]></finalize>
+      </field>
+      
+
+    <identity group="Stunt" />
+    <identity group="HasStunt" />
+    
+    </component>
+    
+  <component
+    id="SelectHelp"
+    name="Selection Helper">
+    
+    <tag group="Helper" tag="Bootstrap" />
+    </component>
+    
+  <component
+    id="Language"
+    name="Language">
+    
+    <identity group="Language" />
+    
+    <eval index="1" phase="Setup" priority="200"><![CDATA[
+    perform forward[CanRead.?]
+    perform forward[CanSpeak.?]
+    ]]></eval>
+    
+    </component>
+
+        
 
 
   <!-- Define various component sets associated with the components defined above.
@@ -404,6 +582,12 @@
     id="Race"
     forceunique="yes">
     <compref component="Race"/>
+    </compset>
+    
+  <compset
+    id="Class"
+    forceunique="yes">
+    <compref component="Class"/>
     </compset>
     
 

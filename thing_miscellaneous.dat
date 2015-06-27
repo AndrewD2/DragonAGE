@@ -135,8 +135,48 @@
     field[resMax].value = herofield[acSecAdv].value
     ]]></eval>
     
-    </thing>    
+    </thing> 
     
+  <thing
+    id="resTalents"
+    name="Talents"
+    compset="Resource">
+    <fieldval field="resObject" value="resTalents" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="2000"><![CDATA[
+    field[resMax].value = round(herofield[acTotLevel].value/2,0,1)
+    ]]></eval>
+    </thing>
+    
+  <thing
+    id="resFocus"
+    name="Focus"
+    compset="Resource">
+    <fieldval field="resObject" value="resFocus" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    </thing>
+
+  <thing
+    id="resSpec"
+    name="Specialization"
+    compset="Resource">
+    <fieldval field="resObject" value="resSpec" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="5000"><![CDATA[
+    if (herofield[acTotLevel].value >= 6) then
+      field[resMax].value +=1
+      endif
+      
+    if (herofield[acTotLevel].value >= 14) then
+      field[resMax].value +=1
+      endif 
+    ]]></eval>      
+    </thing>    
 
 
   <!-- Power points tracker so the user can manage the expenditure of power points -->
