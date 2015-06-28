@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="cMage" name="Mage" compset="Class" uniqueness="unique">
+    <fieldval field="cStartHP" value="20"/>
+    <fieldval field="cStartMP" value="10"/>
+    <arrayval field="cSpellTot" index="1" value="1"/>
+    <arrayval field="cSpellTot" index="3" value="2"/>
+    <arrayval field="cSpellTot" index="5" value="3"/>
+    <arrayval field="cSpellTot" index="7" value="4"/>
+    <arrayval field="cSpellTot" index="9" value="5"/>
+    <arrayval field="cSpellTot" index="11" value="6"/>
+    <arrayval field="cSpellTot" index="13" value="7"/>
+    <arrayval field="cSpellTot" index="15" value="8"/>
+    <arrayval field="cSpellTot" index="17" value="9"/>
+    <arrayval field="cSpellTot" index="19" value="10"/>
+    <arrayval field="cTalentTot" index="0" value="1"/>
+    <arrayval field="cTalentTot" index="2" value="2"/>
+    <arrayval field="cTalentTot" index="4" value="3"/>
+    <arrayval field="cTalentTot" index="6" value="4"/>
+    <arrayval field="cTalentTot" index="8" value="5"/>
+    <arrayval field="cTalentTot" index="10" value="6"/>
+    <arrayval field="cTalentTot" index="12" value="7"/>
+    <arrayval field="cTalentTot" index="14" value="8"/>
+    <arrayval field="cTalentTot" index="16" value="9"/>
+    <arrayval field="cTalentTot" index="18" value="10"/>
+    <arrayval field="cSpecTot" index="5" value="1"/>
+    <arrayval field="cSpecTot" index="13" value="2"/>
+    <tag group="AttrSec" tag="attrPer"/>
+    <tag group="AttrSec" tag="attrStr"/>
+    <tag group="AttrPrim" tag="attrCun"/>
+    <tag group="Hero" tag="Caster"/>
+    <tag group="AttrPrim" tag="attrMag"/>
+    <tag group="AttrPrim" tag="attrWill"/>
+    <tag group="AttrSec" tag="attrCom"/>
+    <tag group="AttrSec" tag="attrCon"/>
+    <tag group="AttrSec" tag="attrDex"/>
+    </thing>
+  </document>

@@ -341,6 +341,7 @@
     <linkage linkage="attribute" optional="no"/>
     
     <identity group="Focus"/>
+    <identity group="bkgFocus" />
     
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Focus.?]
@@ -351,7 +352,24 @@
   <component
     id="Background"
     name="Background"
-    autocompset="yes">
+    autocompset="no">
+    
+    <field
+      id="bgFocCand"
+      maxfinal="100"
+      name="Focus Candidate Expression"
+      type="derived">
+      
+      <finalize><![CDATA[
+      if (tagis[bkgFocus.?] + tagis[bkgAttr.?] = 2) then
+        @text = "(component.Focus & (" & tagids[bkgFocus.?,"|"] & ") | component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & "))"
+      elseif (tagis[bkgFocus.?] <> 0) then
+        @text = "component.Focus & (" & tagids[bkgFocus.?,"|"] & ")"
+      elseif (tagis[bkgAttr.?] <> 0) then
+        @text = "component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & ")"
+        endif
+      ]]></finalize>
+      </field>      
     
     <identity group="Background" />
     
@@ -368,8 +386,7 @@
     autocompset="yes">
     
     <identity group="AttrUse" />
-    
-    
+    <identity group="bkgAttr" />
     </component>    
     
   <component
@@ -378,24 +395,70 @@
     autocompset="no">
     
     <field
-      id="startHP"
+      id="cStartHP"
       type="static"
       name="Starting HP">
       </field>
       
     <field
-      id="manaPts"
+      id="cStartMP"
       type="derived"
       name="Mana Points">
       
-      </field>    
+      </field> 
+
+    <field
+      id="cSpellTot"
+      name="Total Spells per Level"
+      type="derived"
+      style="array"
+      arrayrows="20">
+      </field>
+      
+    <field
+      id="cTalentTot"
+      name="Total Talents per Level"
+      type="derived"
+      style="array"
+      arrayrows="20">
+      </field> 
+
+    <field
+      id="cSpecTot"
+      name="Total Spec per Level"
+      type="derived"
+      style="array"
+      arrayrows="20">
+      </field> 
+      
+    <field
+      id="cFocusTot"
+      name="Total Focus per Level"
+      type="derived"
+      style="array"
+      arrayrows="20">
+      </field>       
     
     <identity group="Class" />
     <identity group="ClassReq" />
     <identity group="AllowClass" />
+    <identity group="SpecClass" />
     
     <eval index="1" phase="Setup" priority="400"><![CDATA[
     perform forward[Class.?]
+    perform forward[AttrPrim.?]
+    perform forward[AttrSec.?]
+    perform forward[Hero.Caster]
+    ]]></eval>
+    
+    <eval index="2" phase="PreLevels" priority="1000"><![CDATA[
+    foreach pick in hero from Attribute
+      if (eachpick.intersect[IsAttr,AttrPrim] <> 0) then
+        perform eachpick.assign[Helper.Primary]
+      else
+        perform eachpick.assign[Helper.Secondary]
+        endif
+      nexteach
     ]]></eval>
     
     </component>
@@ -428,7 +491,9 @@
       name="Mana Points"
       type="user"
       defvalue="0">
-      </field>      
+      </field>
+      
+    
     
     </component>
     
@@ -460,7 +525,7 @@
     
     <identity group="HasSpec" />
     <identity group="Specialize" />
-    
+        
     <eval index="1" phase="Final" priority="99999999"><![CDATA[
     perform forward[HasSpec.?]
     ]]></eval>
@@ -473,6 +538,7 @@
     
     <identity group="HasTalent" />
     <identity group="Talent" />
+    <identity group="bkgTalent" />
     
     <eval index="1" phase="Final" priority="99999999"><![CDATA[
     perform forward[HasTalent.?]
@@ -526,10 +592,16 @@
     name="Language">
     
     <identity group="Language" />
+    <identity group="CanRead" />
+    <identity group="CanSpeak" />
     
     <eval index="1" phase="Setup" priority="200"><![CDATA[
-    perform forward[CanRead.?]
-    perform forward[CanSpeak.?]
+    if (tagis[Helper.CanRead] <> 0) then
+      perform forward[CanRead.?]
+      endif
+    if (tagis[Helper.CanSpeak] <> 0) then
+      perform forward[CanSpeak.?]
+      endif
     ]]></eval>
     
     </component>
@@ -589,6 +661,38 @@
     forceunique="yes">
     <compref component="Class"/>
     </compset>
+    
+  <compset
+    id="ClassLvl"
+    forceunique="no">
+    <compref component="ClassLvl"/>
+    </compset>
+    
+  <compset
+    id="Focus"
+    forceunique="yes">
+    <compref component="Focus" />
+    <compref component="Ability" />
+    </compset>
+    
+  <compset
+    id="Talent">
+    <compref component="Talent" />
+    <compref component="Ability" />
+    </compset>
+    
+  <compset
+    id="Background"
+    forceunique="yes">
+    <compref component="Background" />
+    </compset>
+    
+  <compset
+    id="ClsStunt">
+    <compref component="ClsStunt" />
+    <compref component="Ability" />
+    </compset>
+    
     
 
 

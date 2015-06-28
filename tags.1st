@@ -41,6 +41,8 @@
     <value id="NoPersText"/>  <!-- User entered no background text -->
     <value id="Primary"/>
     <value id="Secondary"/>
+    <value id="CanRead" />
+    <value id="CanSpeak" />
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -473,23 +475,18 @@
     <value id="Journeyman" />
     <value id="Master" />
     </group>
-    
+
   <group
-    id="Language"
+    id="bkgAttr"
+    name="Background Attribute"
     dynamic="yes">
     </group>
     
   <group
-    id="CanRead"
-    dynamic="yes"
-    inherit="Language">
+    id="bkgFocus"
+    name="Background Focus"
+    dynamic="yes">
     </group>
-    
-  <group
-    id="CanSpeak"
-    dynamic="yes"
-    inherit="Language">
-    </group>   
-    
+
     
   </document>

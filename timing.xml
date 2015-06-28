@@ -252,7 +252,23 @@
         </task>
       </priority>
     </phase>
+  <phase phase="Pre-Levels (3)">
+    <priority priority="1000">
+      <task name="Component Class: Eval Script #2">
+        </task>
+      </priority>
+    </phase>
   <phase phase="Post-Levels (5)">
+    <priority priority="500">
+      <task name="Thing resFocus: Eval Script #1">
+        </task>
+      <task name="Thing resSpec: Eval Script #1">
+        </task>
+      <task name="Thing resSpells: Eval Script #1">
+        </task>
+      <task name="Thing resTalents: Eval Script #1">
+        </task>
+      </priority>
     <priority priority="1000">
       <task name="Field acPrimAdv: Calc Prim Adv">
         </task>
@@ -263,12 +279,6 @@
       <task name="Thing resPrimAdv: Eval Script #1">
         </task>
       <task name="Thing resSecAdv: Eval Script #1">
-        </task>
-      <task name="Thing resTalents: Eval Script #1">
-        </task>
-      </priority>
-    <priority priority="5000">
-      <task name="Thing resSpec: Eval Script #1">
         </task>
       </priority>
     </phase>

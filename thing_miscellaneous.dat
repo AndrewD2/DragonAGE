@@ -145,10 +145,29 @@
     
     <tag group="Helper" tag="Bootstrap" />
     
-    <eval index="1" phase="PostLevels" priority="2000"><![CDATA[
-    field[resMax].value = round(herofield[acTotLevel].value/2,0,1)
+    <eval index="1" phase="PostLevels" priority="500"><![CDATA[
+    var arraylevel as number
+    arraylevel = herofield[acTotLevel].value - 1
+    
+    field[resMax].value += hero.findchild[Class].field[cTalentTot].arrayvalue[arraylevel]
     ]]></eval>
     </thing>
+    
+  <thing
+    id="resSpells"
+    name="Spells"
+    compset="Resource">
+    <fieldval field="resObject" value="resSpells" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="500"><![CDATA[
+    var arraylevel as number
+    arraylevel = herofield[acTotLevel].value - 1
+    
+    field[resMax].value += hero.findchild[Class].field[cSpellTot].arrayvalue[arraylevel]
+    ]]></eval>
+    </thing>    
     
   <thing
     id="resFocus"
@@ -157,6 +176,13 @@
     <fieldval field="resObject" value="resFocus" />
     
     <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="500"><![CDATA[
+    var arraylevel as number
+    arraylevel = herofield[acTotLevel].value - 1
+    
+    field[resMax].value += hero.findchild[Class].field[cFocusTot].arrayvalue[arraylevel]
+    ]]></eval>
     </thing>
 
   <thing
@@ -167,14 +193,11 @@
     
     <tag group="Helper" tag="Bootstrap" />
     
-    <eval index="1" phase="PostLevels" priority="5000"><![CDATA[
-    if (herofield[acTotLevel].value >= 6) then
-      field[resMax].value +=1
-      endif
-      
-    if (herofield[acTotLevel].value >= 14) then
-      field[resMax].value +=1
-      endif 
+    <eval index="1" phase="PostLevels" priority="500"><![CDATA[
+    var arraylevel as number
+    arraylevel = herofield[acTotLevel].value - 1
+    
+    field[resMax].value += hero.findchild[Class].field[cSpecTot].arrayvalue[arraylevel]
     ]]></eval>      
     </thing>    
 
