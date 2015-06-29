@@ -196,6 +196,10 @@
         </task>
       <task name="Component Advance: Eval Script #1">
         </task>
+      <task name="Component Background: Eval Script #4">
+        </task>
+      <task name="Component Class: Eval Script #3">
+        </task>
       <task name="Component Focus: Eval Script #1">
         </task>
       <task name="Component Race: Eval Script #1">
@@ -283,6 +287,10 @@
       </priority>
     </phase>
   <phase phase="Pre-Attributes (6)">
+    <priority priority="1000">
+      <task name="Component Background: Eval Script #2">
+        </task>
+      </priority>
     <priority priority="5000">
       <task name="Component Defense: Eval Script #2">
         </task>
@@ -343,8 +351,6 @@
   <phase phase="Post-Attributes (8)">
     <priority priority="5000">
       <task name="Field acSpeed: Calculate (Speed)">
-        </task>
-      <task name="Field cHPBonus: Calculate (Hit Points Bonus)">
         </task>
       </priority>
     </phase>
@@ -484,6 +490,8 @@
         </task>
       </priority>
     <priority priority="10000">
+      <task name="Component Background: Eval Script #3">
+        </task>
       <task name="Field jrnSummary: Calculate (Summary)">
         </task>
       <task name="Field perAge: Bound (Age)">
@@ -499,6 +507,14 @@
       <task name="Field usrSource2: Calculate (Source for Menu #2 Choices)">
         </task>
       <task name="Field wpRange: Calculate (Range)">
+        </task>
+      </priority>
+    <priority priority="9999999">
+      <task name="Component Background: Eval Script #5">
+        </task>
+      <task name="Component Background: Eval Script #6">
+        </task>
+      <task name="Component Background: Eval Script #7">
         </task>
       </priority>
     </phase>

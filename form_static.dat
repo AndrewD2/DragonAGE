@@ -27,6 +27,7 @@
         The "chosen" script shows the selected race with a suitable prefix. If no
         race is yet selected, a prompt it shown with appropriate color highlighting.
   -->
+  <!--
   <portal
     id="stRace"
     style="chsNormal"
@@ -46,6 +47,7 @@
         ]]></titlebar>
       </chooser_table>
     </portal>
+    -->
 
 
   <!-- stName template
@@ -99,9 +101,19 @@
     id="stActor"
     name="Static Actor"
     compset="Actor">
-
+    
     <portal
-      id="hp"
+      id="charinfo"
+      style="lblStatic">
+      <label>
+        <labeltext><![CDATA[
+          @text = hero.tagnames[Race.?] & " " & hero.tagnames[Class.?] & herofield[acTotLevel].text
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+       id="hp"
       style="lblStatic">
       <label>
         <labeltext><![CDATA[
@@ -149,7 +161,8 @@
       ~on the height of one of the portals, so vertical alignment can be ignored
 
       ~position the portals horizontally
-      portal[hp].left = 0
+      portal[charinfo].left = 0
+      perform portal[hp].alignrel[ltor,charinfo,15]
       perform portal[power].alignrel[ltor,hp,15]
       perform portal[cp].alignrel[ltor,power,15]
       perform portal[cash].alignrel[ltor,cp,15]
@@ -178,7 +191,7 @@
   -->
   <layout
     id="static">
-    <portalref portal="stRace" taborder="20"/>
+    <!--<portalref portal="stRace" taborder="20"/>-->
     <templateref template="stName" thing="heroname" taborder="10"/>
     <templateref template="stActor" thing="actor"/>
 
@@ -191,8 +204,8 @@
 
       ~position the race portal to the right of the name, with the actor template
       ~a little to the right of the race
-      portal[stRace].left = template[stName].right + 20
-      template[stActor].left = portal[stRace].right + 15
+      ~portal[stRace].left = template[stName].right + 20
+      template[stActor].left = template[stName].right + 20
 
       ~limit the width of the actor template to the remaining space available and
       ~then render the template
@@ -202,7 +215,7 @@
       ~center all visual elements vertically
       ~Note: We can't do this until after we've calculated the heights for both
       ~       templates, which is done when we render them.
-      portal[stRace].top = (height - portal[stRace].height) / 2
+      ~portal[stRace].top = (height - portal[stRace].height) / 2
       template[stName].top = (height - template[stName].height) / 2
       template[stActor].top = (height - template[stActor].height) / 2
       ]]></position>

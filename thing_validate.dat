@@ -72,7 +72,7 @@
       validif (hero.child[resAbility].field[resLeft].value <= 0)
 
       ~mark associated tabs as invalid
-      container.panelvalid[abilities] = 0
+      container.panelvalid[background] = 0
       ]]></evalrule>
 
     <!-- Make sure that we don't have too many special abilities selected -->
@@ -81,7 +81,7 @@
       validif (hero.child[resAbility].field[resLeft].value >= 0)
 
       ~mark associated tabs as invalid
-      container.panelvalid[abilities] = 0
+      container.panelvalid[background] = 0
       ]]></evalrule>
 
     </thing>

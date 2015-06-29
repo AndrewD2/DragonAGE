@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="rDwarf" name="Dwarf" compset="Race" uniqueness="unique">
+    <tag group="BaseSpeed" tag="8"/>
+    </thing>
+  <thing id="rElf" name="Elf" compset="Race" uniqueness="unique">
+    <tag group="BaseSpeed" tag="12"/>
+    </thing>
+  <thing id="rHuman" name="Human" compset="Race" uniqueness="unique">
+    <tag group="BaseSpeed" tag="10"/>
+    </thing>
+  <thing id="rQunari" name="Qunari" compset="Race" uniqueness="unique">
+    <tag group="BaseSpeed" tag="10"/>
+    </thing>
+  </document>

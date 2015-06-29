@@ -53,6 +53,7 @@
 
 
   <!-- Ability slot resource to track the pool of ability slots being spent -->
+
   <thing
     id="resAbility"
     name="Ability Slots"
@@ -138,6 +139,17 @@
     </thing> 
     
   <thing
+    id="resBkGrnd"
+    name="Background"
+    compset="Resource">
+    <fieldval field="resObject" value="Background"/>
+    <fieldval field="resMax" value="1" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    </thing>     
+    
+  <thing
     id="resTalents"
     name="Talents"
     compset="Resource">
@@ -152,6 +164,17 @@
     field[resMax].value += hero.findchild[Class].field[cTalentTot].arrayvalue[arraylevel]
     ]]></eval>
     </thing>
+    
+  <thing
+    id="resClass"
+    name="Class"
+    compset="Resource">
+    <fieldval field="resObject" value="Class" />
+    <fieldval field="resMax" value="1" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    </thing>    
     
   <thing
     id="resSpells"

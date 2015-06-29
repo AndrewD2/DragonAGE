@@ -150,20 +150,92 @@
     defunique="unique"
     description="Your background determines what Races and Classes you can take, plus supplies you with a bonus to ability scores, grants foci, etc."
     summary="Defines a starting background for the character.">
+    
+    <inputthing
+      name="Race"
+      helptext="Select the race for the background.">
+      <it_bootstrap compset="Race" />
+      </inputthing>
      
     <inputthing
       name="Allowed Classes"
       helptext="Select the classes that can be chosen with this background">
-      <it_taglist group="AllowClass" tag="cls?" />     
+      <it_taglist group="AllowClass" tag="c?" />     
+      </inputthing>
+      
+    <inputthing
+      name="Background Attr Bonus"
+      helptext="Enter the attribute bonus gained from the background">
+      <it_field field="bgAttrBon" />
+      </inputthing>
+      
+    <inputthing
+      name="Background Attribute"
+      helptext="Select the attribute the bonus applies to.">
+      <it_tagpick group="BgBonus" tag="attr?" />
       </inputthing>
       
     <inputthing
       name="Starting Focus"
       helptext="Select the foci that you can start with.">
-      <it_taglist group="bkgFocus" tag="?" title="Background Focus" addtitle="Background Focus">
+      <it_taglist group="bkgFocus" tag="?" />
+      </inputthing>      
+      
+    <inputthing
+      name="Starting Focus/Attribute Table"
+      helptext="Select the foci that you can start with.">
+      <it_taglist group="bkgFocus2" tag="?" title="Background Focus" addtitle="Background Focus">
         <extratag group="bkgAttr" tag="?" title="Background Attribute"/>
         </it_taglist>
       </inputthing>
+      
+    <inputthing
+      name="Table Value 2"
+      helptext="Enter the text for the focus table value of 2.">
+      <it_field field="bgTable2" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 3-4"
+      helptext="Enter the text for the focus table value of 3-4.">
+      <it_field field="bgTable4" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 5"
+      helptext="Enter the text for the focus table value of 5.">
+      <it_field field="bgTable5" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 6"
+      helptext="Enter the text for the focus table value of 6.">
+      <it_field field="bgTable6" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 8"
+      helptext="Enter the text for the focus table value of 7-8.">
+      <it_field field="bgTable8" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 9"
+      helptext="Enter the text for the focus table value of 9.">
+      <it_field field="bgTable9" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 10-11"
+      helptext="Enter the text for the focus table value of 10-11.">
+      <it_field field="bgTable11" />
+      </inputthing>
+
+    <inputthing
+      name="Table Value 12"
+      helptext="Enter the text for the focus table value of 12.">
+      <it_field field="bgTable12" />
+      </inputthing>      
       
     <inputthing
       name="Starting Languages"
@@ -231,9 +303,9 @@
       </inputthing> 
 
     <inputthing
-      name="Class Stunts"
-      helptext="Select the class tricks and the level they are added.">
-      <it_bootcustom compset="ClsStunt">
+      name="Class Powers"
+      helptext="Select the class powers and the level they are added.">
+      <it_bootcustom compset="ClassPower">
         <inputthing
         name="Level Gained">
           <it_tagpick group="ClSpecWhen" tag="?" />
@@ -258,6 +330,17 @@
       helptext="Defines how many spells per level the class gains. Remember each row is level - 1.">
       <it_field field="cSpellTot" />
       </inputthing>
+    </editthing>
+    
+  <!-- Language editthing -->
+  <editthing
+    compset="Language"
+    name="Language"
+    prefix="l"
+    description="Languages that can be spoken and/or read."
+    summary="Defines a simple language.">
+    
+    <!-- Langues do not need fields or tags themselves, they are applied by the background-->
     </editthing>
 
 

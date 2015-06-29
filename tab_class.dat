@@ -46,27 +46,32 @@
         The title includes an indication of how many selections have been chosen
         and how many remain, with appropriate color highlighting to prompt the user.
   -->
-  <portal
-    id="abAbility"
+  <!--<portal
+    id="bgBkGround"
     style="tblNormal">
     <table_dynamic
-      component="Ability"
-      showtemplate="abPick"
+      component="Background"
+      showtemplate="bgPick"
       choosetemplate="SimpleItem"
       showfixedlast="yes"
-      addpick="resAbility">
+      descwidth="450"
+      addpick="resBkGrnd">
       <candidate>!Hide.Ability</candidate>
       <titlebar><![CDATA[
-        @text = "Add a Special Ability - " & hero.child[resAbility].field[resSummary].text
+        @text = "Add a Background - " & hero.child[resBkGrnd].field[resSummary].text
         ]]></titlebar>
-      <description/>
+      <description><![CDATA[
+      var descript as string
+      call bgDescript
+      @text = descript 
+      ]]></description>
       <headertitle><![CDATA[
-        @text = "Special Abilities: " & hero.child[resAbility].field[resSummary].text
+        @text = "Background: " & hero.child[resBkGrnd].field[resSummary].text
         ]]></headertitle>
       <additem><![CDATA[
         ~if we're in advancement mode, we've been frozen, so display accordingly
         if (state.iscreate = 0) then
-          @text = "{text clrgrey}Add Special Abilities Via Advances Tab"
+          @text = "{text clrgrey}Background"
           done
           endif
 
@@ -76,22 +81,59 @@
         elseif (field[resLeft].value < 0) then
           @text = "{text clrwarning}"
           endif
-        @text &= "Add New Special Ability"
+        @text &= "Add Background"
         ]]></additem>
+        
+      </table_dynamic>
+    </portal>-->
+
+   <portal
+    id="cClass"
+    style="tblNormal">
+    <table_dynamic
+      component="Class"
+      showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+      showfixedlast="yes"
+      descwidth="450"
+      addpick="resClass">
+      <needtag container="AllowClass" thing="AllowClass" />
+      <titlebar><![CDATA[
+        @text = "Select You Class - " & hero.child[resClass].field[resSummary].text
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Class: " & hero.child[resClass].field[resSummary].text
+        ]]></headertitle>
+      <additem><![CDATA[
+        ~if we're in advancement mode, we've been frozen, so display accordingly
+        if (state.iscreate = 0) then
+          @text = "{text clrgrey}Class"
+          done
+          endif
+
+        ~set the color based on whether the proper number of slots are allocated
+        if (field[resLeft].value = 0) then
+          @text = "{text clrgrey}"
+        elseif (field[resLeft].value < 0) then
+          @text = "{text clrwarning}"
+          endif
+        @text &= "Select Class"
+        ]]></additem>
+        
       </table_dynamic>
     </portal>
 
-
-  <!-- abPick template
+  <!-- bgPick template
         Displays the name of the pick/thing and an info button with the basic
         description text. This is basically the "SimpleItem" template, with one
         key difference. Auto-added abilities such as those conferred by races are
         sorted and colored differently to distinguish their nature.
   -->
-  <template
-    id="abPick"
-    name="Ability Pick"
-    compset="Ability"
+  <!--<template
+    id="bgPick"
+    name="Background Pick"
+    compset="Background"
     marginhorz="3"
     marginvert="2">
 
@@ -152,7 +194,7 @@
         endif
       ]]></position>
 
-    </template>
+    </template>-->
 
 
   <!-- abilities layout
@@ -164,20 +206,23 @@
         logic for the Basics tab. So please refer to the Basics tab for more details.
   -->
   <layout
-    id="abilities">
-    <portalref portal="abAbility" taborder="10"/>
+    id="class">
+    <!--<portalref portal="bgBkGround" taborder="10"/>-->
+    <portalref portal="cClass" taborder="20" />
 
     <!-- This script sizes and positions the layout and its child visual elements. -->
     <position><![CDATA[
       ~freeze our table in advancement mode to disable adding new choices
       ~Note: All freezing must be done *before* any positioning is performed.
       if (state.iscreate = 0) then
-        portal[abAbility].freeze = 1
+        ~portal[bgBkGround].freeze = 1
+        ~portal[bgClass].freeze = 1
         endif
 
       ~position and size the table to span the full layout; it will only use the
       ~vertical space that it actually needs
-      perform portal[abAbility].autoplace
+     ~ perform portal[bgBkGround].autoplace
+      perform portal[cClass].autoplace
       ]]></position>
 
     </layout>
@@ -192,13 +237,15 @@
         please refer to the Basics panel for more details.
   -->
   <panel
-    id="abilities"
-    name="Abilities"
+    id="class"
+    name="Class"
     marginhorz="5"
     marginvert="5"
-    order="120">
-    <live>!HideTab.abilities</live>
-    <layoutref layout="abilities"/>
+    order="150"
+    agentcompset="Class"
+    agentlive="ClsTabLive"
+    agentname="shortname">
+    <layoutref layout="class"/>
     <position><![CDATA[
       ]]></position>
     </panel>

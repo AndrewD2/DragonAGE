@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="bgAnderSur" name="Ander Survivor (Human)" description="The Anderfels is a nation in the northwest of Thedas, distant and remote from Ferelden. It is the home of the Grey Wardens&apos; headquarters, Weisshaupt Fortress, and is the one nation in which the Wardens retain an important political influence. No region of Thedas has paid a higher price for defeating the Blights. The Anderfels, once a part of the Tevinter Imperium, was the center of three of them and its steppes have still not recovered. The Blights poisoned the land to such an extent that they are utterly devoid of life. Even with the defeat of the old Blights, however, the Ander people could not rest easy. Darkspawn raids have been common there since the Divine Age. This has made the Anderfels a nation of survivors. You must be tough to see your adult years there. A surprising number of Anders choose to remain in this harsh environment but those who decamp for other parts of Thedas are quite capable of taking care of themselves.\n\n{b}Playing An Ander Survivor{/b}\nIf you choose to play an Ander survivor, modify your character as follows: \n\n• Add 1 to your Constitution ability. Anders must be tough.\n• Pick one of the following ability focuses: {b}Constitution (Stamina){/b} or {b}Strength (Climbing){/b}.\n• You can speak and read Ander and the Trade Tongue.\n• Choose a class. You can play either a rogue or a warrior." compset="Background" uniqueness="unique">
+    <fieldval field="shortname" value="Ander Survivor"/>
+    <fieldval field="bgTable2" value="+1 Dexterity"/>
+    <fieldval field="bgTable4" value="{b}Focus:{/b} Constitution (Running)"/>
+    <fieldval field="bgTable5" value="{b}Focus:{/b} Cunning (Historical Lore)"/>
+    <fieldval field="bgTable6" value="{b}Focus:{/b} Perception (Tracking)"/>
+    <fieldval field="bgTable8" value="+1 Strength"/>
+    <fieldval field="bgTable9" value="{b}Focus:{/b} Dexterity (Brawling)"/>
+    <fieldval field="bgTable11" value="{b}Focus:{/b} Willpower (Courage)"/>
+    <fieldval field="bgTable12" value="+1 Perception"/>
+    <tag group="BgBonus" tag="attrCon"/>
+    <tag group="AllowClass" tag="cMage"/>
+    <bootstrap thing="lAnder">
+      <autotag group="Helper" tag="CanRead"/>
+      <autotag group="Helper" tag="CanSpeak"/>
+      </bootstrap>
+    <bootstrap thing="rHuman"></bootstrap>
+    <bootstrap thing="lTradeTon">
+      <autotag group="Helper" tag="CanRead"/>
+      <autotag group="Helper" tag="CanSpeak"/>
+      </bootstrap>
+    </thing>
+  <thing id="lTradeTon" name="Trade Tongue" compset="Language" uniqueness="unique"></thing>
+  <thing id="lAnder" name="Ander" compset="Language" uniqueness="unique"></thing>
+  </document>

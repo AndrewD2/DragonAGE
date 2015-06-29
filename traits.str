@@ -71,7 +71,7 @@
       name="Bonus Value"
       type="derived">
       </field>
-
+      
     <!-- In-play bonuses applied to the trait -->
     <field
       id="trtInPlay"
@@ -140,6 +140,7 @@
       </field>
     
     <identity group="IsAttr" />
+    <identity group="BgBonus" />
     
     <!-- Attributes have a minimum trait value of -2 -->
     <eval index="1" phase="Initialize" priority="3000"><![CDATA[
@@ -215,8 +216,7 @@
   <component
     id="Ability"
     name="Ability"
-    autocompset="no"
-    panellink="abilities">
+    autocompset="no">
 
     <!-- Activation state of ability - we're not activated by default -->
     <field
@@ -337,11 +337,19 @@
     name="Focus"
     autocompset="no">
     
+    <field
+      id="focLevel"
+      name="Focus Level"
+      defvalue="1"
+      maxvalue="2">
+      </field>
+    
     <!-- Each skill is associated with a specific attribute that must be identified -->
     <linkage linkage="attribute" optional="no"/>
     
     <identity group="Focus"/>
     <identity group="bkgFocus" />
+    <identity group="bkgFocus2" />
     
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Focus.?]
@@ -352,31 +360,150 @@
   <component
     id="Background"
     name="Background"
-    autocompset="no">
+    autocompset="no"
+    panellink="background"
+    hasshortname="yes">
     
     <field
-      id="bgFocCand"
-      maxfinal="100"
-      name="Focus Candidate Expression"
+      id="bgAttrBon"
+      name="Background Attr Bonus"
+      type="derived"
+      defvalue="1">
+      </field>
+
+    <field
+      id="bgTable2"
+      name="Table Val 2 Text"
+      type="static"
+      maxlength="50">
+      </field>
+      
+    <field
+      id="bgTable4"
+      name="Table Val 3-4 Text"
+      type="static"
+      maxlength="50">
+      </field>
+
+    <field
+      id="bgTable5"
+      name="Table Val 5 Text"
+      type="static"
+      maxlength="50">
+      </field>
+
+    <field
+      id="bgTable6"
+      name="Table Val 6 Text"
+      type="static"
+      maxlength="50">
+      </field>
+
+    <field
+      id="bgTable8"
+      name="Table Val 7-8 Text"
+      type="static"
+      maxlength="50">
+      </field>
+
+    <field
+      id="bgTable9"
+      name="Table Val 9 Text"
+      type="static"
+      maxlength="50">
+      </field>
+
+    <field
+      id="bgTable11"
+      name="Table Val 10-11 Text"
+      type="static"
+      maxlength="50">
+      </field>
+
+    <field
+      id="bgTable12"
+      name="Table Val 12 Text"
+      type="static"
+      maxlength="50">
+      </field>
+      
+    <field
+      id="bgClsCand1"
+      maxlength="100"
+      name="Class Candiate Expression 1"
       type="derived">
       
-      <finalize><![CDATA[
-      if (tagis[bkgFocus.?] + tagis[bkgAttr.?] = 2) then
-        @text = "(component.Focus & (" & tagids[bkgFocus.?,"|"] & ") | component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & "))"
-      elseif (tagis[bkgFocus.?] <> 0) then
-        @text = "component.Focus & (" & tagids[bkgFocus.?,"|"] & ")"
-      elseif (tagis[bkgAttr.?] <> 0) then
-        @text = "component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & ")"
-        endif
-      ]]></finalize>
-      </field>      
+
+      </field>   
+
+    <field
+      id="bgFocCand1"
+      maxlength="100"
+      name="Focus Candiate Expression 1"
+      type="derived">
+      
+
+      </field>
     
+    <field
+      id="bgTabCand1"
+      maxlength="100"
+      name="Table Candidate Expression 2"
+      type="derived">
+      
+     
+      </field>
+      
+   
     <identity group="Background" />
+    <identity group="AllowBkg" />
     
     <eval index="1" phase="Setup" priority="200"><![CDATA[
     perform forward[AllowClass.?]
+    perform forward[Background.?]
     ]]></eval>
     
+    <eval index="2" phase="PreAttr" priority="1000"><![CDATA[
+    hero.findchild[Attribute, tagids[BgBonus.?,"|"]].field[trtBonus].value += field[bgAttrBon].value
+    ]]></eval>
+    
+    <eval index="3" phase="Render" priority="10000"><![CDATA[
+    field[livename].text = field[shortname].text
+    ]]></eval>
+    
+    <!-- Each background that is added by the user costs 1 slot -->
+    <eval index="4" phase="Setup" priority="5000"><![CDATA[
+      ~we must ignore bootstrapped abilities from races and abilities added via advances
+      if (isuser + origin.ishero >= 2) then
+        hero.child[resBkGrnd].field[resSpent].value += 1
+        endif
+      ]]></eval>    
+
+    <eval index="7" phase="Render" priority="9999999"><![CDATA[
+      if (tagis[bkgFocus2.?] + tagis[bkgAttr.?] = 2) then
+        field[bgTabCand1].text = "(component.Focus & (" & tagids[bkgFocus2.?,"|"] & ") | component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & "))"
+      elseif (tagis[bkgFocus2.?] <> 0) then
+        field[bgTabCand1].text = "component.Focus & (" & tagids[bkgFocus2.?,"|"] & ")"
+      elseif (tagis[bkgAttr.?] <> 0) then
+        field[bgTabCand1].text = "component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & ")"
+        endif
+      ]]></eval>     
+
+      <eval index="5" phase="Render" priority="9999999"><![CDATA[
+      if (tagis[bkgFocus.?] <> 0) then
+        field[bgFocCand1].text = "component.Focus & (" & tagids[bkgFocus.?,"|"] & ")"
+      else
+        field[bgFocCand1].text = "FALSE"
+        endif
+      ]]></eval>    
+
+      <eval index="6" phase="Render" priority="9999999"><![CDATA[
+      if (tagis[AllowClass.?] <> 0) then
+        field[bgClsCand1].text = "component.Class & (" & tagids[Class.?,"|"] & ")"
+      else
+        field[bgClsCand1].text = "FALSE"
+        endif
+      ]]></eval>      
     </component>
     
     
@@ -392,7 +519,8 @@
   <component
     id="Class"
     name="Class"
-    autocompset="no">
+    autocompset="no"
+    hasshortname="yes">
     
     <field
       id="cStartHP"
@@ -402,10 +530,130 @@
       
     <field
       id="cStartMP"
-      type="derived"
+      type="static"
       name="Mana Points">
       
       </field> 
+      
+    <field
+      id="cHP1"
+      name="Level 1 Hit Points"
+      type="user">
+      </field>
+      
+    <field
+      id="cHP2"
+      name="Level 2 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP3"
+      name="Level 3 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP4"
+      name="Level 4 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP5"
+      name="Level 5 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP6"
+      name="Level 6 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP7"
+      name="Level 7 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP8"
+      name="Level 8 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP9"
+      name="Level 9 Hit Points"
+      type="user">
+      </field>
+
+    <field
+      id="cHP10"
+      name="Level 10 Hit Points"
+      type="user">
+      </field>      
+
+    <field
+      id="cMP1"
+      name="Level 1 Mana Points"
+      type="user">
+      </field>
+
+    <field
+      id="cMP2"
+      name="Level 2 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP3"
+      name="Level 3 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP4"
+      name="Level 4 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP5"
+      name="Level 5 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP6"
+      name="Level 6 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP7"
+      name="Level 7 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP8"
+      name="Level 8 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP9"
+      name="Level 9 Mana Points"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP10"
+      name="Level 10 Mana Points"
+      type="user">
+      </field>       
 
     <field
       id="cSpellTot"
@@ -443,12 +691,14 @@
     <identity group="ClassReq" />
     <identity group="AllowClass" />
     <identity group="SpecClass" />
+    <identity group="ClsTabLive" />
     
     <eval index="1" phase="Setup" priority="400"><![CDATA[
     perform forward[Class.?]
     perform forward[AttrPrim.?]
     perform forward[AttrSec.?]
     perform forward[Hero.Caster]
+    perform forward[ClsTabLive.?]
     ]]></eval>
     
     <eval index="2" phase="PreLevels" priority="1000"><![CDATA[
@@ -461,8 +711,15 @@
       nexteach
     ]]></eval>
     
-    </component>
+    <eval index="3" phase="Setup" priority="5000"><![CDATA[
+      ~we must ignore bootstrapped abilities from races and abilities added via advances
+      if (isuser + origin.ishero >= 2) then
+        hero.child[resClass].field[resSpent].value += 1
+        endif
+      ]]></eval>    
     
+    </component>
+<!--    
   <component
     id="ClassLvl"
     name="Class Level"
@@ -492,10 +749,10 @@
       type="user"
       defvalue="0">
       </field>
-      
+     
     
     
-    </component>
+    </component>-->
     
   <component
     id="ClassTrk"
@@ -536,6 +793,13 @@
     name="Talent"
     autocompset="no">
     
+    <field
+      id="talLevel"
+      name="Talent Level"
+      defvalue="1"
+      maxvalue="3">
+      </field>    
+    
     <identity group="HasTalent" />
     <identity group="Talent" />
     <identity group="bkgTalent" />
@@ -546,8 +810,8 @@
     </component>     
 
   <component
-    id="ClsStunt"
-    name="Class Stunt"
+    id="ClassPower"
+    name="Class Power"
     autocompset="no">
     
     <field
@@ -661,12 +925,13 @@
     forceunique="yes">
     <compref component="Class"/>
     </compset>
-    
+<!--   
   <compset
     id="ClassLvl"
     forceunique="no">
     <compref component="ClassLvl"/>
     </compset>
+    -->
     
   <compset
     id="Focus"
@@ -676,7 +941,8 @@
     </compset>
     
   <compset
-    id="Talent">
+    id="Talent"
+    forceunique="yes">
     <compref component="Talent" />
     <compref component="Ability" />
     </compset>
@@ -688,8 +954,8 @@
     </compset>
     
   <compset
-    id="ClsStunt">
-    <compref component="ClsStunt" />
+    id="ClassPower">
+    <compref component="ClassPower" />
     <compref component="Ability" />
     </compset>
     

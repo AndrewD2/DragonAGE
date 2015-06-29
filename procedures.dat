@@ -264,6 +264,47 @@
       endif
     ]]></procedure>
 
+    <!-- setting the background description -->
+    <procedure id="bgDescript" context="info"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var descript as string
+    var isprereq as number
+
+    ~if this is a show-only thing, just output any description text and we're done
+    if (tagis[thing.showonly] <> 0) then
+      descript = field[descript].text
+      done
+      endif
+
+    ~we start our details text with nothing
+    descript = ""
+
+    ~if requested or renderend for a thing, append any failed prereq details
+    if (isprereq + !ispick <> 0) then
+      var prereqs as string
+      call Prereqs
+      descript &= prereqs
+      endif
+
+
+    if (field[descript].isempty <> 0) then
+      descript &= chr(150) & " no description " & chr(150)
+    else
+      descript &= field[descript].text
+      endif
+      
+    descript &= "{br}{br}{font Courier New}"
+    
+    descript &= "{b}2d6 Roll               Benefit{/b}{br}"
+    descript &= "   2              " & field[bgTable2].text & "{br}"
+    descript &= "  3-4             " & field[bgTable4].text & "{br}"
+    descript &= "   5              " & field[bgTable5].text & "{br}"
+    descript &= "   6              " & field[bgTable6].text & "{br}"
+    descript &= "  7-8             " & field[bgTable8].text & "{br}"
+    descript &= "   9              " & field[bgTable9].text & "{br}"
+    descript &= " 10-11            " & field[bgTable11].text & "{br}"
+    descript &= "   12             " & field[bgTable12].text & "{br}"
+   ]]></procedure>
 
   <!-- Procedure InfoWeapon
         Generate details specific to all weapons. The text is placed into the

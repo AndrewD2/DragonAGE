@@ -159,6 +159,7 @@
     <value id="smAbility"/>
     <value id="smArmory"/>
     <value id="smStatbl"/>
+    <value id="background" />
     </group>
 
   <!-- Hide group - controls whether things are hidden in certain contexts
@@ -177,6 +178,7 @@
     <value id="Ability"/>         <!-- Indicates an ability that is not user selectable (i.e. conferred by race or similar mechanism) -->
     <value id="Special"/>         <!-- Indicates a trait that is hidden from the Special tab -->
     <value id="Tracker"/>         <!-- Indicates a tracker that is hidden from the In-Play tab (and likely shown somewhere else) -->
+    <value id="Class" />
     </group>
 
   <!-- Show group - controls whether things are shown in certain contexts
@@ -485,6 +487,12 @@
   <group
     id="bkgFocus"
     name="Background Focus"
+    dynamic="yes">
+    </group>
+    
+  <group
+    id="bkgFocus2"
+    name="Background Tbl Focus"
     dynamic="yes">
     </group>
 
