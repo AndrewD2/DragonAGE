@@ -110,7 +110,15 @@ These data files provide a starting framework for implementing support for any g
   <scriptmacro
     name="attrvalue"
     param1="attr"
-    result="hero.child[#attr].field[trtFinal].value"/>    
+    result="hero.child[#attr].field[trtFinal].value"/>
+  <scriptmacro
+    name="bkgattrbonus"
+    param1="attr"
+    result="hero.child[#attr].field[bkgBonus].value"/> 
+  <scriptmacro
+    name="advgattrbonus"
+    param1="attr"
+    result="hero.child[#attr].field[advBonus].value"/>     
   <scriptmacro
     name="traitfound"
     param1="trait"

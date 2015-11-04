@@ -43,6 +43,14 @@
     <value id="Secondary"/>
     <value id="CanRead" />
     <value id="CanSpeak" />
+    <value id="AttrBonus" />
+    </group>
+    
+  <group
+    id="FocusFrom">
+    <value id="StartFocus" />
+    <value id="BkgTable" />
+    <value id="Focus" />
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -319,24 +327,9 @@
     <value id="Unknown" order="80"/>
     </group>
     
-  <group
-    id="IsAttr"
-    dynamic="yes">
-    </group>
     
-  <group
-    id="AttrPrim"
-    dynamic="yes"
-    inherit="IsAttr">
-    </group>
-    
-  <group
-    id="AttrSec"
-    dynamic="yes"
-    inherit="IsAttr">
-    </group>
-    
-  <group
+ 
+ <group
     id="backTblMin"
     sequence="idvalue"
     minvalue="2"
@@ -476,24 +469,6 @@
     <value id="Novice" />
     <value id="Journeyman" />
     <value id="Master" />
-    </group>
-
-  <group
-    id="bkgAttr"
-    name="Background Attribute"
-    dynamic="yes">
-    </group>
-    
-  <group
-    id="bkgFocus"
-    name="Background Focus"
-    dynamic="yes">
-    </group>
-    
-  <group
-    id="bkgFocus2"
-    name="Background Tbl Focus"
-    dynamic="yes">
     </group>
 
     

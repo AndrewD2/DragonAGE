@@ -37,7 +37,7 @@
     -->
 
   
-  <!-- Talet editthing -->
+  <!-- Talent editthing -->
   <editthing
     compset="Talent"
     name="Talent"
@@ -156,6 +156,12 @@
       helptext="Select the race for the background.">
       <it_bootstrap compset="Race" />
       </inputthing>
+      
+    <inputthing
+      name="Social Classes Allowed"
+      helptext="Select the allowed social classes.">
+      <it_taglist group="AllowSoc" tag="?" />
+      </inputthing>
      
     <inputthing
       name="Allowed Classes"
@@ -184,9 +190,7 @@
     <inputthing
       name="Starting Focus/Attribute Table"
       helptext="Select the foci that you can start with.">
-      <it_taglist group="bkgFocus2" tag="?" title="Background Focus" addtitle="Background Focus">
-        <extratag group="bkgAttr" tag="?" title="Background Attribute"/>
-        </it_taglist>
+      <it_taglist group="bkgTable" tag="?" />
       </inputthing>
       
     <inputthing
@@ -255,6 +259,30 @@
       </inputthing>
       
 
+    </editthing>
+    
+  <editthing
+    compset="bkgTable"
+    name="Background Table"
+    prefix="bt"
+    description="Makes background table picks"
+    summary="Makes background table picks">
+    
+    <inputthing
+      name="Add Focus"
+      helptext="Select the focus for this pick">
+      <it_bootlist compset="Focus" />
+      </inputthing>
+      
+    </editthing>
+    
+  <editthing
+    compset="SocialCls"
+    name="Social Class"
+    prefix="sc"
+    description="Create a social class for a background."
+    summary="Create a social class for a background.">
+    
     </editthing>
     
   <!-- Class editthing -->

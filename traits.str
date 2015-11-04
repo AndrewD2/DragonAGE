@@ -78,6 +78,18 @@
       name="In-Play Bonus"
       type="derived">
       </field>
+      
+    <field
+      id="advBonus"
+      name="Advancement Bonus"
+      type="derived">
+      </field>
+      
+    <field
+      id="bkgBonus"
+      name="Background Bonus"
+      type="derived">
+      </field>      
 
     <!-- Final value for the trait -->
     <field
@@ -88,7 +100,7 @@
       <calculate phase="Attr" priority="3000" name="Calc trtFinal"><![CDATA[
         ~Note! If you change this calculation, you may need to change the similar
         ~       calculation in the "Derived" component.
-        @value = field[trtUser].value + field[trtBonus].value + field[trtInPlay].value
+        @value = field[trtUser].value + field[trtBonus].value + field[trtInPlay].value + field[bkgBonus].value
         ]]></calculate>
       </field>
 
@@ -110,6 +122,10 @@
         perform assign[Helper.Maximum]
         endif
       ]]></eval>
+      
+    <eval index="3" phase="Attr" priority="5000"><![CDATA[
+      field[trtFinal].value  += field[advBonus].value
+      ]]></eval>
 
     </component>
 
@@ -129,31 +145,36 @@
       
       <!-- Calculate the final value from the three distinct pieces -->
       <calculate phase="Initialize" priority="3000" name="IsPrimary?"><![CDATA[
-        @value = this.intersect[IsAttr,AttrPrim]
+        @value = tagis[Helper.Primary]
         ]]></calculate>
       </field>
       
-    <field
-      id="advBonus"
-      name="Advancement Bonus"
-      type="derived">
-      </field>
-    
+   
     <identity group="IsAttr" />
     <identity group="BgBonus" />
+    <identity group="AttrPrim" />
+    <identity group="AttrSec" />
+    <identity group="FocAttr" />
     
     <!-- Attributes have a minimum trait value of -2 -->
     <eval index="1" phase="Initialize" priority="3000"><![CDATA[
-      field[trtMinimum].value = -2
+      if (hero.tagis[source.PtBuyAttr] <> 0) then
+        field[trtMinimum].value = 0
+        field[trtMaximum].value = 3
+      else
+        field[trtMinimum].value = -2
+        field[trtMaximum].value = 4
+        endif
       ]]></eval>
 
     <!-- Each attribute point above one that is allocated by the user costs 7 CP -->
     <eval index="2" phase="Attr" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound trtUser"/><![CDATA[
-      hero.child[resCP].field[resSpent].value += (field[trtUser].value - 1) * 7
+      doneif (hero.tagis[source.PtBuyAttr] = 0)
+      hero.child[resAttr].field[resSpent].value += (field[trtUser].value)
       ]]></eval>
-
+      
     </component>
 
 
@@ -341,7 +362,14 @@
       id="focLevel"
       name="Focus Level"
       defvalue="1"
-      maxvalue="2">
+      minvalue="1"
+      maxvalue="1">
+      
+      <bound phase="PostLevels" priority="1000" name="Define Focus Max"><![CDATA[
+        if (herofield[acTotLevel].value > 10) then
+          @maximum = 2
+          endif
+        ]]></bound>
       </field>
     
     <!-- Each skill is associated with a specific attribute that must be identified -->
@@ -354,6 +382,17 @@
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Focus.?]
       ]]></eval>
+      
+    <eval index="2" phase="Setup" priority="5000"><![CDATA[
+      ~pull the identity tag of the linked attribute into the focus
+      perform linkage[attribute].pullidentity[FocAttr]
+      ]]></eval>   
+
+    <eval index="3" phase="PostLevels" priority="2000"><![CDATA[
+      if (tagis[portal.bgFocus] <> 0) then
+        #resspent[resSrtFoc] += 1
+        endif
+      ]]></eval>        
       
     </component>
     
@@ -459,12 +498,15 @@
     <identity group="AllowBkg" />
     
     <eval index="1" phase="Setup" priority="200"><![CDATA[
-    perform forward[AllowClass.?]
-    perform forward[Background.?]
-    ]]></eval>
+      perform forward[AllowClass.?]
+      perform forward[Background.?]
+      perform forward[bkgFocus.?]
+      perform forward[bkgTable.?]
+      perform forward[AllowSoc.?]
+      ]]></eval>
     
     <eval index="2" phase="PreAttr" priority="1000"><![CDATA[
-    hero.findchild[Attribute, tagids[BgBonus.?,"|"]].field[trtBonus].value += field[bgAttrBon].value
+    hero.findchild[Attribute, tagids[BgBonus.?,"|"]].field[bkgBonus].value += field[bgAttrBon].value
     ]]></eval>
     
     <eval index="3" phase="Render" priority="10000"><![CDATA[
@@ -480,14 +522,8 @@
       ]]></eval>    
 
     <eval index="7" phase="Render" priority="9999999"><![CDATA[
-      if (tagis[bkgFocus2.?] + tagis[bkgAttr.?] = 2) then
-        field[bgTabCand1].text = "(component.Focus & (" & tagids[bkgFocus2.?,"|"] & ") | component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & "))"
-      elseif (tagis[bkgFocus2.?] <> 0) then
-        field[bgTabCand1].text = "component.Focus & (" & tagids[bkgFocus2.?,"|"] & ")"
-      elseif (tagis[bkgAttr.?] <> 0) then
-        field[bgTabCand1].text = "component.AbilAdvance & (" & tagids[bkgAttr.?,"|"] & ")"
-        endif
-      ]]></eval>     
+        field[bgTabCand1].text = "(component.bkgTable & (" & tagids[bkgTable.?,"|"] & ")"
+        ]]></eval>     
 
       <eval index="5" phase="Render" priority="9999999"><![CDATA[
       if (tagis[bkgFocus.?] <> 0) then
@@ -513,8 +549,25 @@
     autocompset="yes">
     
     <identity group="AttrUse" />
-    <identity group="bkgAttr" />
-    </component>    
+    </component>
+
+   <component
+     id="bkgTable"
+     name="Background Table">
+     
+     <identity group="bkgTable" />
+     
+     <eval index="1" phase="PostLevels" priority="2000"><![CDATA[
+       if (tagis[portal.bgTable] <> 0) then
+         if (tagis[Helper.AttrBonus] + hero.tagis[source.PtBuyBkg] = 2) then
+           hero.child[resBgTbl].field[resSpent].value += 2
+         else
+           hero.child[resBgTbl].field[resSpent].value += 1
+           endif
+         endif
+       ]]></eval>
+     </component>
+     
     
   <component
     id="Class"
@@ -535,126 +588,6 @@
       
       </field> 
       
-    <field
-      id="cHP1"
-      name="Level 1 Hit Points"
-      type="user">
-      </field>
-      
-    <field
-      id="cHP2"
-      name="Level 2 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP3"
-      name="Level 3 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP4"
-      name="Level 4 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP5"
-      name="Level 5 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP6"
-      name="Level 6 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP7"
-      name="Level 7 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP8"
-      name="Level 8 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP9"
-      name="Level 9 Hit Points"
-      type="user">
-      </field>
-
-    <field
-      id="cHP10"
-      name="Level 10 Hit Points"
-      type="user">
-      </field>      
-
-    <field
-      id="cMP1"
-      name="Level 1 Mana Points"
-      type="user">
-      </field>
-
-    <field
-      id="cMP2"
-      name="Level 2 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP3"
-      name="Level 3 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP4"
-      name="Level 4 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP5"
-      name="Level 5 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP6"
-      name="Level 6 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP7"
-      name="Level 7 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP8"
-      name="Level 8 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP9"
-      name="Level 9 Mana Points"
-      type="user">
-      </field> 
-
-    <field
-      id="cMP10"
-      name="Level 10 Mana Points"
-      type="user">
-      </field>       
-
     <field
       id="cSpellTot"
       name="Total Spells per Level"
@@ -716,7 +649,12 @@
       if (isuser + origin.ishero >= 2) then
         hero.child[resClass].field[resSpent].value += 1
         endif
-      ]]></eval>    
+      ]]></eval>
+
+    <eval index="4" phase="Setup" priority="5000"><![CDATA[
+      hero.child[HitManaPt].field[cHPBonus].value += field[cStartHP].value  
+      hero.child[HitManaPt].field[cMPBonus].value += field[cStartMP].value 
+      ]]></eval>
     
     </component>
 <!--    
@@ -754,13 +692,6 @@
     
     </component>-->
     
-  <component
-    id="ClassTrk"
-    name="Class Trick"
-    autocompset="no">
-    
-    <identity group="ClassTrk" />
-    </component>
     
   <component
     id="Spell"
@@ -869,6 +800,332 @@
     ]]></eval>
     
     </component>
+    
+  <component
+    id="AttrPrereq"
+    name="Attribute Prereq"
+    autocompset="no">
+    
+    <field
+      id="reqCom"
+      name="Required Communication"
+      type="derived">
+      </field>
+      
+    <field
+      id="reqCon"
+      name="Required Constituation"
+      type="derived">
+      </field>      
+      
+    <field
+      id="reqCun"
+      name="Required Cunning"
+      type="derived">
+      </field>
+
+    <field
+      id="reqDex"
+      name="Required Dexterity"
+      type="derived">
+      </field>
+
+    <field
+      id="reqMag"
+      name="Required Magic"
+      type="derived">
+      </field>
+
+    <field
+      id="reqPer"
+      name="Required Perception"
+      type="derived">
+      </field>
+
+    <field
+      id="reqStr"
+      name="Required Strength"
+      type="derived">
+      </field>
+
+    <field
+      id="reqWill"
+      name="Required Willpower"
+      type="derived">
+      </field>
+      
+    <prereq message="Communications too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqCom].value <= #attrvalue[attrCom])
+        @message = "Communications " & altthing.field[reqCom].value & " or higher required."
+        ]]></validate>
+      </prereq>      
+
+    <prereq message="Constitution too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqCon].value <= #attrvalue[attrCon])
+        @message = "Constitution " & altthing.field[reqCon].value & " or higher required."
+        ]]></validate>
+      </prereq>
+      
+    <prereq message="Cunning too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqCun].value <= #attrvalue[attrCun])
+        @message = "Cunning " & altthing.field[reqCun].value & " or higher required."
+        ]]></validate>
+      </prereq>
+
+    <prereq message="Dexterity too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqDex].value <= #attrvalue[attrDex])
+        @message = "Dexterity " & altthing.field[reqDex].value & " or higher required."
+        ]]></validate>
+      </prereq>
+
+    <prereq message="Magic too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqMag].value <= #attrvalue[attrMag])
+        @message = "Communications " & altthing.field[reqMag].value & " or higher required."
+        ]]></validate>
+      </prereq>
+
+    <prereq message="Communications too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqCom].value <= #attrvalue[attrCom])
+        @message = "Communications " & altthing.field[reqCom].value & " or higher required."
+        ]]></validate>
+      </prereq>
+
+    <prereq message="Perception too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqPer].value <= #attrvalue[attrPer])
+        @message = "Perception " & altthing.field[reqPer].value & " or higher required."
+        ]]></validate>
+      </prereq>
+
+    <prereq message="Strength too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqStr].value <= #attrvalue[attrStr])
+        @message = "Strength " & altthing.field[reqCom].value & " or higher required."
+        ]]></validate>
+      </prereq>
+
+    <prereq message="Willpower too low">
+      <validate><![CDATA[
+        validif (altthing.field[reqWill].value <= #attrvalue[attrWill])
+        @message = "Willpower " & altthing.field[reqCom].value & " or higher required."
+        ]]></validate>
+      </prereq>
+      
+    </component>
+    
+  <component
+    id="HitManaPt"
+    name="Hit Point/Mana Point">
+    
+    <field
+      id="cHP1"
+      name="Level 1 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+      
+    <field
+      id="cHP2"
+      name="Level 2 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP3"
+      name="Level 3 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP4"
+      name="Level 4 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP5"
+      name="Level 5 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP6"
+      name="Level 6 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP7"
+      name="Level 7 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP8"
+      name="Level 8 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP9"
+      name="Level 9 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cHP10"
+      name="Level 10 Hit Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>      
+
+    <field
+      id="cMP1"
+      name="Level 1 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+
+    <field
+      id="cMP2"
+      name="Level 2 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP3"
+      name="Level 3 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP4"
+      name="Level 4 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP5"
+      name="Level 5 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP6"
+      name="Level 6 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP7"
+      name="Level 7 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP8"
+      name="Level 8 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP9"
+      name="Level 9 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field> 
+
+    <field
+      id="cMP10"
+      name="Level 10 Mana Points"
+      minvalue="0"
+      maxvalue="6"
+      type="user">
+      </field>
+      
+    <field
+      id="cHPBonus"
+      name="Class Hit Point Bonus"
+      type="derived">
+      </field>
+      
+    <field
+      id="cMPBonus"
+      name="Class Mana Point Bonus"
+      type="derived">
+      </field>
+      
+    <field
+      id="attrHPBon"
+      name="Attribute HP Bonus"
+      type="derived">
+      
+      <calculate phase="PostAttr" priority="5000"><![CDATA[
+        @value = #attrvalue[attrCon] * herofield[acTotLevel].value
+        ]]></calculate>
+      </field>
+      
+    <field
+      id="attrMPBon"
+      name="Attribute MP Bonus"
+      type="derived">
+      
+      <calculate phase="PostAttr" priority="5000"><![CDATA[
+        @value = #attrvalue[attrMag] * herofield[acTotLevel].value
+        ]]></calculate>
+      </field>      
+
+    </component>
+    
+  <component
+    id="SocialCls"
+    name="Social Class"
+    autocompset="no">
+    
+    <identity group="AllowSoc" />
+    </component>
+    
+    
 
         
 
@@ -925,6 +1182,15 @@
     forceunique="yes">
     <compref component="Class"/>
     </compset>
+    
+  <compset
+    id="Specialize"
+    forceunique="yes">
+    <compref component="Specialize" />
+    <compref component="Ability" />
+    <compref component="AttrPrereq" />
+    </compset>
+    
 <!--   
   <compset
     id="ClassLvl"
@@ -937,7 +1203,7 @@
     id="Focus"
     forceunique="yes">
     <compref component="Focus" />
-    <compref component="Ability" />
+    <compref component="bkgTable" />
     </compset>
     
   <compset
@@ -959,6 +1225,13 @@
     <compref component="Ability" />
     </compset>
     
+  <compset
+    id="SocialCls"
+    forceunique="yes">
+    <compref component="SocialCls" />
+    </compset>
+    
+ 
     
 
 

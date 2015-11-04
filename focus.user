@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="foStamina" name="Constitution (Stamina)" description="Enduring fatigue, disease, and privation." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCon"/>
+    </thing>
+  <thing id="foClimbing" name="Strength (Climbing)" description="Scaling walls and other vertical obstacles." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foRunning" name="Constitution (Running)" description="Moving quickly in both short sprints and long distance hauls." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCon"/>
+    </thing>
+  <thing id="foHistLore" name="Cunning (Historical Lore)" description="Knowing important events and personalities from the past." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foTracking" name="Perception (Tracking)" description="Following tracks and other signs of passage." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foBrawling" name="Dexterity (Brawling)" description="Fighting with weapons from the Brawling Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foCourage" name="Willpower (Courage)" description="Overcoming fear in the face of adversity." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrWill"/>
+    </thing>
+  <thing id="foSelfDisc" name="Willpower (Self-Discipline)" description="Focusing your mental energy or controlling your impulses and emotions." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrWill"/>
+    </thing>
+  <thing id="foAnimHand" name="Communication (Animal Handing)" description="Interacting with and caring for animals." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foInvestig" name="Communication (Investigation)" description="Interviewing people for information and finding and deciphering clues." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foDisguise" name="Communication (Disguise)" description="Making yourself look like someone else, or a different class of person." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foPerform" name="Communication (Performance)" description="Entertaining an audience with an artistic talent." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foLeadersh" name="Communication (Leadership)" description="Guiding, directing, and inspiring others." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foEtiquett" name="Communication (Etiquette)" description="Knowing the social niceties of various cultures." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foGambling" name="Communication (Gambling)" description="Playing games of chance and profiting from them." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foDeceptio" name="Communication (Deception)" description="Lying to and tricking those less mentally adept than you." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foPersuasi" name="Communication (Persuasion)" description="Convincing others to agree with you." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foSeductio" name="Communication (Seduction)" description="Making winning moves in the game of love." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foBargain" name="Communication (Barganing)" description="Negotiating with others and making deals." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCom"/>
+    </thing>
+  <thing id="foSwimming" name="Constitution (Swimming)" description="Moving through the water and staying afloat." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCon"/>
+    </thing>
+  <thing id="foRowing" name="Constitution (Rowing)" description="Propelling a vessel with oars." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCon"/>
+    </thing>
+  <thing id="foDrinking" name="Constitution (Drinking)" description="Consuming large quantities of alcohol and avoiding the aftereffects." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCon"/>
+    </thing>
+  <thing id="foArcLore" name="Cunning (Arcane Lore)" description="Knowing about magic, its traditions, and the Fade." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foBrewing" name="Cunning (Brewing)" description="Making ales, wines, and other concoctions." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foCartogra" name="Cunning (Cartography)" description="Making and reading maps." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foCryptogr" name="Cunning (Cryptography)" description="Creating and deciphering codes and ciphers." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foCultLore" name="Cunning (Cultural Lore)" description="Knowing the traditions and beliefs of various cultures." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foEnchant" name="Cunning (Enchantment)" description="Understanding the art and craft of enchanting magic items. Note to actually Enchant items one must be either a dwarf or one of the Tranquil." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foEngineer" name="Cunning (Engineering)" description="Knowing the practicalities of construction, building, and invention." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foEvaluati" name="Cunning (Evaluation)" description="Determining the value of goods and objets d&apos;art." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foHealing" name="Cunning (Healing)" description="Aiding the wounded and sick." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foHeraldry" name="Cunning (Heraldry)" description="Knowing coats of arms and royal families." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foMiltLore" name="Cunning (Military Lore)" description="Knowing strategy, tactics, and famous applications thereof." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foResearch" name="Cunning (Research)" description="Making a systematic investigation, usually using records, archives, and books." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foQun" name="Cunning (Qun)" description="Knowing about the philosophy of the Qunari people." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foPoisLore" name="Cunning (Poison Lore)" description="Knowing about poisons, their uses, and their preparation." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foNavigati" name="Cunning (Navigation)" description="Planning and following a route from one place to another." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foNatuLore" name="Cunning (Natural Lore)" description="Knowing the flora and fauna of Thedas." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foMusiLore" name="Cunning (Musical Lore)" description="Knowing musical traditions and songs." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foWriting" name="Cunning (Writing)" description="Expressing yourself with the written word." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foReliLore" name="Cunning (Religious Lore)" description="Knowing religious traditions and practices, particularly those of the Chantry." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrCun"/>
+    </thing>
+  <thing id="foCraft" name="Dexterity (Crafting)" description="Making items with manual skills like woodworking, sculpting, glassblowing, etc." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foGrenades" name="Dexterity (Grenades)" description="Making ranged attacks with grenades." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foDueling" name="Dexterity (Dueling)" description="Fighting with weapons from the Dueling Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foInitiati" name="Dexterity (Initiative)" description="Acting quickly in tense situations." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foLegerdem" name="Dexterity (Legerdemain)" description="Using sleight of hand to trick others, hide things, and pick pockets." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foLigBlade" name="Dexterity (Light Blades)" description="Fighting with weapons from the Light Blades Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foLockpick" name="Dexterity (Lock PIcking)" description="Opening locks without using keys." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foRiding" name="Dexterity (Riding)" description="Directing a mount such as a horse or pony." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foStaves" name="Dexterity (Staves)" description="Fighting with weapons from the Staves Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foStealth" name="Dexterity (Stealth)" description="Sneaking about quietly and out of sight." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foAcrobat" name="Dexterity (Acrobatics)" description="Executing gymnastic, balancing, and tumbling maneuvers." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foBows" name="Dexterity (Bows)" description="Fighting with weapons from the Bows Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foCalligra" name="Dexterity (Calligraphy)" description="Writing with artful penmanship." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foTraps" name="Dexterity (Traps)" description="Detecting and disarming traps and other mechanical devices." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrDex"/>
+    </thing>
+  <thing id="foArcLance" name="Magic (Arcane Lance)" description="Using the mage&apos;s class power of the same name." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrMag"/>
+    </thing>
+  <thing id="foBlood" name="Magic (Blood)" description="Understanding the forbidden art of Blood Magic." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrMag"/>
+    </thing>
+  <thing id="foCreation" name="Magic (Creation)" description="Understanding the secrets of the Creation school of magic." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrMag"/>
+    </thing>
+  <thing id="foEntropy" name="Magic (Entropy)" description="Understanding the secrets of the Entropy school of magic." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrMag"/>
+    </thing>
+  <thing id="foPrimal" name="Magic (Primal)" description="Understanding the secrets of the Primal school of magic." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrMag"/>
+    </thing>
+  <thing id="foSpirit" name="Magic (Spirit)" description="Understanding the secrets of the Spirit school of magic." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrMag"/>
+    </thing>
+  <thing id="foEmpathy" name="Perception (Empathy)" description="Discerning the feelings and emotions of others." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foDeteDark" name="Perception (Detect Darkspawn)" description="A Grey Warden&apos;s ability to sense nearby darkspawn. Only Grey Wardens can take this focus." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foHearing" name="Perception (Hearing)" description="Using your auditory sense." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foSearch" name="Perception (Searching)" description="Finding things that are hidden or obscured." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foSeeing" name="Perception (Seeing)" compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foSmelling" name="Perception (Smelling)" description="Using your olfactory sense." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrPer"/>
+    </thing>
+  <thing id="foJumping" name="Strength (Jumping)" description="Springing and leaping." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foLances" name="Strength (Lances)" description="Fighting with weapons of the Lances Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foMight" name="Strength (Might)" description="Performing feats of raw power, such as lifting or holding up heavy objects." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foPolearms" name="Strength (Polearms)" description="Fighting with weapons of the Polearms Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foSmithing" name="Strength (Smithing)" description="Forging metal items, from weapons to jewelry." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foSpears" name="Strength (Spears)" description="Fighting with weapons from the Spears Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foIntimida" name="Strength (Intimidation)" description="Overawing with physical presence and threats." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foAxes" name="Strength (Axes)" description="Fighting with weapons from the Axes Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foBludgeon" name="Strength (Bludgeons)" description="Fighting with weapons from the Bludgeons Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foDriving" name="Strength (Driving)" description="Directing and guiding carts, carriages, and other wheeled vehicles." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foHeaBlade" name="Strength (Heavy Blades)" description="Fighting with weapons from the Heavy Blades Group." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrStr"/>
+    </thing>
+  <thing id="foFaith" name="Willpower (Faith)" description="Deriving inner strength through spiritual or moral belief." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrWill"/>
+    </thing>
+  <thing id="foMorale" name="Willpower (Morale)" description="Maintaining good spirits and confidence in yourself or your group. NPCs tend to use this focus more than Player Characters." compset="Focus" uniqueness="unique">
+    <link linkage="attribute" thing="attrWill"/>
+    </thing>
+  </document>

@@ -69,7 +69,7 @@
         automatically defines a "source" tag when enabled by the user, allowing the
         data files to tailor behavior based on the presence (or not) of that tag.
   -->
-
+  
   <source
     id="Optional"
     name="Optional Rules"
@@ -126,6 +126,36 @@
     sortorder="4"
     description="Controls whether any tracked resources for the character are included in the text statblock">
     </source>
+    
+  <source
+    id="OptionRule"
+    name="Optionals Rules"
+    selectable="no"
+    sortorder="1">
+    </source>
+    
+  <source
+    id="PtBuyBkg"
+    name="Background Point Buy"
+    abbrev="Background Point Buy"
+    sortorder="2"
+    parent="OptionRule">
+    </source>
+    
+  <source
+    id="PtBuyAttr"
+    name="Attribute Point Buy"
+    sortorder="1"
+    parent="OptionRule">
+    </source>
+    
+  <source
+    id="noXP"
+    name="No XP"
+    sortorder="3"
+    parent="OptionRule">
+    </source>
+    
 
 
   <!-- The "sortset" elements specify the various sort sequences to be used when

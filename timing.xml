@@ -25,6 +25,7 @@
   <name name="Calc wpNetAtk" full="Component WeapRange: Calc wpNetAtk"/>
   <name name="Calc wpNetAtk" full="Component WeapMelee: Calc wpNetAtk"/>
   <name name="Check Hands" full="Thing valHands: Check Hands"/>
+  <name name="Define Focus Max" full="Field focLevel: Define Focus Max"/>
   <name name="Derived trtFinal" full="Component Derived: Derived trtFinal"/>
   <name name="Equip Armor" full="Component Armor: Equip Armor"/>
   <name name="Equip Shield" full="Component Shield: Equip Shield"/>
@@ -200,7 +201,11 @@
         </task>
       <task name="Component Class: Eval Script #3">
         </task>
+      <task name="Component Class: Eval Script #4">
+        </task>
       <task name="Component Focus: Eval Script #1">
+        </task>
+      <task name="Component Focus: Eval Script #2">
         </task>
       <task name="Component Race: Eval Script #1">
         </task>
@@ -261,6 +266,24 @@
       <task name="Component Class: Eval Script #2">
         </task>
       </priority>
+    <priority priority="5000">
+      <task name="Thing bkgCom: Eval Script #1">
+        </task>
+      <task name="Thing bkgCon: Eval Script #1">
+        </task>
+      <task name="Thing bkgCun: Eval Script #1">
+        </task>
+      <task name="Thing bkgDex: Eval Script #1">
+        </task>
+      <task name="Thing bkgMag: Eval Script #1">
+        </task>
+      <task name="Thing bkgPer: Eval Script #1">
+        </task>
+      <task name="Thing bkgStr: Eval Script #1">
+        </task>
+      <task name="Thing bkgWill: Eval Script #1">
+        </task>
+      </priority>
     </phase>
   <phase phase="Post-Levels (5)">
     <priority priority="500">
@@ -278,11 +301,23 @@
         </task>
       <task name="Field acSecAdv: Calc Sec Adv">
         </task>
+      <task name="Field focLevel: Define Focus Max">
+        </task>
       </priority>
     <priority priority="2000">
+      <task name="Component Focus: Eval Script #3">
+        </task>
+      <task name="Component bkgTable: Eval Script #1">
+        </task>
+      <task name="Thing resAttr: Eval Script #1">
+        </task>
+      <task name="Thing resBgTbl: Eval Script #1">
+        </task>
       <task name="Thing resPrimAdv: Eval Script #1">
         </task>
       <task name="Thing resSecAdv: Eval Script #1">
+        </task>
+      <task name="Thing resSocial: Eval Script #1">
         </task>
       </priority>
     </phase>
@@ -324,6 +359,8 @@
         </task>
       <task name="Field acHPMin: Calc acHPMin">
         </task>
+      <task name="Component Trait: Eval Script #3">
+        </task>
       </priority>
     <priority priority="5002">
       <task name="Field acHPMax: Calc acHPMax">
@@ -351,6 +388,10 @@
   <phase phase="Post-Attributes (8)">
     <priority priority="5000">
       <task name="Field acSpeed: Calculate (Speed)">
+        </task>
+      <task name="Field attrHPBon: Calculate (Attribute HP Bonus)">
+        </task>
+      <task name="Field attrMPBon: Calculate (Attribute MP Bonus)">
         </task>
       </priority>
     </phase>

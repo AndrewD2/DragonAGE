@@ -12,12 +12,22 @@
     <fieldval field="bgTable12" value="+1 Perception"/>
     <tag group="BgBonus" tag="attrCon"/>
     <tag group="AllowClass" tag="cMage"/>
-    <bootstrap thing="lAnder">
+    <tag group="bkgFocus" tag="foStamina"/>
+    <tag group="bkgFocus" tag="foClimbing"/>
+    <tag group="bkgTable" tag="bkgDex"/>
+    <tag group="bkgTable" tag="bkgPer"/>
+    <tag group="bkgTable" tag="bkgStr"/>
+    <tag group="bkgTable" tag="foRunning"/>
+    <tag group="bkgTable" tag="foHistLore"/>
+    <tag group="bkgTable" tag="foBrawling"/>
+    <tag group="bkgTable" tag="foTracking"/>
+    <tag group="bkgTable" tag="foCourage"/>
+    <bootstrap thing="rHuman"></bootstrap>
+    <bootstrap thing="lTradeTon">
       <autotag group="Helper" tag="CanRead"/>
       <autotag group="Helper" tag="CanSpeak"/>
       </bootstrap>
-    <bootstrap thing="rHuman"></bootstrap>
-    <bootstrap thing="lTradeTon">
+    <bootstrap thing="lAnder">
       <autotag group="Helper" tag="CanRead"/>
       <autotag group="Helper" tag="CanSpeak"/>
       </bootstrap>

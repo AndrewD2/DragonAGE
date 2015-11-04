@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="btStamina" name="Focus: Constitution (Stamina)" description="Enduring fatigue, disease, and privation." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSwimming"></bootstrap>
+    </thing>
+  <thing id="btClimbing" name="Focus: Strength (Climbing)" description="Scaling walls and other vertical obstacles." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foClimbing"></bootstrap>
+    </thing>
+  <thing id="btRunning" name="Focus: Constitution (Running)" description="Moving quickly in both short sprints and long distance hauls." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foRunning"></bootstrap>
+    </thing>
+  <thing id="btHistLore" name="Focus: Cunning (Historical Lore)" description="Knowing important events and personalities from the past." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foHistLore"></bootstrap>
+    </thing>
+  <thing id="btTracking" name="Focus: Perception (Tracking)" description="btllowing tracks and other signs of passage." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foTracking"></bootstrap>
+    </thing>
+  <thing id="btBrawling" name="Focus: Dexterity (Brawling)" description="Fighting with weapons from the Brawling Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foBrawling"></bootstrap>
+    </thing>
+  <thing id="btCourage" name="Focus: Willpower (Courage)" description="Overcoming fear in the face of adversity." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCourage"></bootstrap>
+    </thing>
+  <thing id="btSelfDisc" name="Focus: Willpower (Self-Discipline)" description="bkgTableing your mental energy or controlling your impulses and emotions." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSelfDisc"></bootstrap>
+    </thing>
+  <thing id="btAnimHand" name="Focus: Communication (Animal Handing)" description="Interacting with and caring btr animals." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foAnimHand"></bootstrap>
+    </thing>
+  <thing id="btInvestig" name="Focus: Communication (Investigation)" description="Interviewing people btr inbtrmation and finding and deciphering clues." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foInvestig"></bootstrap>
+    </thing>
+  <thing id="btDisguise" name="Focus: Communication (Disguise)" description="Making yourself look like someone else, or a different class of person." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foDisguise"></bootstrap>
+    </thing>
+  <thing id="btPerform" name="Focus: Communication (Perbtrmance)" description="Entertaining an audience with an artistic talent." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foPerform"></bootstrap>
+    </thing>
+  <thing id="btLeadersh" name="Focus: Communication (Leadership)" description="Guiding, directing, and inspiring others." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foLeadersh"></bootstrap>
+    </thing>
+  <thing id="btEtiquett" name="Focus: Communication (Etiquette)" description="Knowing the social niceties of various cultures." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foEtiquett"></bootstrap>
+    </thing>
+  <thing id="btGambling" name="Focus: Communication (Gambling)" description="Playing games of chance and profiting from them." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foGambling"></bootstrap>
+    </thing>
+  <thing id="btDeceptio" name="Focus: Communication (Deception)" description="Lying to and tricking those less mentally adept than you." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foDeceptio"></bootstrap>
+    </thing>
+  <thing id="btPersuasi" name="Focus: Communication (Persuasion)" description="Convincing others to agree with you." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foPersuasi"></bootstrap>
+    </thing>
+  <thing id="btSeductio" name="Focus: Communication (Seduction)" description="Making winning moves in the game of love." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSeductio"></bootstrap>
+    </thing>
+  <thing id="btBargain" name="Focus: Communication (Barganing)" description="Negotiating with others and making deals." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foBargain"></bootstrap>
+    </thing>
+  <thing id="btSwimming" name="Focus: Constitution (Swimming)" description="Moving through the water and staying afloat." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSwimming"></bootstrap>
+    </thing>
+  <thing id="btRowing" name="Focus: Constitution (Rowing)" description="Propelling a vessel with oars." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foRowing"></bootstrap>
+    </thing>
+  <thing id="btDrinking" name="Focus: Constitution (Drinking)" description="Consuming large quantities of alcohol and avoiding the aftereffects." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foDrinking"></bootstrap>
+    </thing>
+  <thing id="btArcLore" name="Focus: Cunning (Arcane Lore)" description="Knowing about magic, its traditions, and the Fade." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foArcLore"></bootstrap>
+    </thing>
+  <thing id="btBrewing" name="Focus: Cunning (Brewing)" description="Making ales, wines, and other concoctions." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foBrewing"></bootstrap>
+    </thing>
+  <thing id="btCartogra" name="Focus: Cunning (Cartography)" description="Making and reading maps." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCryptogr"></bootstrap>
+    </thing>
+  <thing id="btCryptogr" name="Focus: Cunning (Cryptography)" description="Creating and deciphering codes and ciphers." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCryptogr"></bootstrap>
+    </thing>
+  <thing id="btCultLore" name="Focus: Cunning (Cultural Lore)" description="Knowing the traditions and beliefs of various cultures." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCultLore"></bootstrap>
+    </thing>
+  <thing id="btEnchant" name="Focus: Cunning (Enchantment)" description="Understanding the art and craft of enchanting magic items. Note to actually Enchant items one must be either a dwarf or one of the Tranquil." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foEnchant"></bootstrap>
+    </thing>
+  <thing id="btEngineer" name="Focus: Cunning (Engineering)" description="Knowing the practicalities of construction, building, and invention." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foEngineer"></bootstrap>
+    </thing>
+  <thing id="btEvaluati" name="Focus: Cunning (Evaluation)" description="Determining the value of goods and objets d&apos;art." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foEvaluati"></bootstrap>
+    </thing>
+  <thing id="btHealing" name="Focus: Cunning (Healing)" description="Aiding the wounded and sick." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foHealing"></bootstrap>
+    </thing>
+  <thing id="btHeraldry" name="Focus: Cunning (Heraldry)" description="Knowing coats of arms and royal families." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foHeraldry"></bootstrap>
+    </thing>
+  <thing id="btMiltLore" name="Focus: Cunning (Military Lore)" description="Knowing strategy, tactics, and famous applications thereof." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foMiltLore"></bootstrap>
+    </thing>
+  <thing id="btResearch" name="Focus: Cunning (Research)" description="Making a systematic investigation, usually using records, archives, and books." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foResearch"></bootstrap>
+    </thing>
+  <thing id="btQun" name="Focus: Cunning (Qun)" description="Knowing about the philosophy of the Qunari people." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foQun"></bootstrap>
+    </thing>
+  <thing id="btPoisLore" name="Focus: Cunning (Poison Lore)" description="Knowing about poisons, their uses, and their preparation." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foPoisLore"></bootstrap>
+    </thing>
+  <thing id="btNavigati" name="Focus: Cunning (Navigation)" description="Planning and btllowing a route from one place to another." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foNavigati"></bootstrap>
+    </thing>
+  <thing id="btNatuLore" name="Focus: Cunning (Natural Lore)" description="Knowing the flora and fauna of Thedas." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foNatuLore"></bootstrap>
+    </thing>
+  <thing id="btMusiLore" name="Focus: Cunning (Musical Lore)" description="Knowing musical traditions and songs." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foMusiLore"></bootstrap>
+    </thing>
+  <thing id="btWriting" name="Focus: Cunning (Writing)" description="Expressing yourself with the written word." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foWriting"></bootstrap>
+    </thing>
+  <thing id="btReliLore" name="Focus: Cunning (Religious Lore)" description="Knowing religious traditions and practices, particularly those of the Chantry." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foReliLore"></bootstrap>
+    </thing>
+  <thing id="btCraft" name="Focus: Dexterity (Crafting)" description="Making items with manual skills like woodworking, sculpting, glassblowing, etc." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCraft"></bootstrap>
+    </thing>
+  <thing id="btGrenades" name="Focus: Dexterity (Grenades)" description="Making ranged attacks with grenades." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foGrenades"></bootstrap>
+    </thing>
+  <thing id="btDueling" name="Focus: Dexterity (Dueling)" description="Fighting with weapons from the Dueling Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foDueling"></bootstrap>
+    </thing>
+  <thing id="btInitiati" name="Focus: Dexterity (Initiative)" description="Acting quickly in tense situations." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foInitiati"></bootstrap>
+    </thing>
+  <thing id="btLegerdem" name="Focus: Dexterity (Legerdemain)" description="Using sleight of hand to trick others, hide things, and pick pockets." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foLegerdem"></bootstrap>
+    </thing>
+  <thing id="btLigBlade" name="Focus: Dexterity (Light Blades)" description="Fighting with weapons from the Light Blades Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foLigBlade"></bootstrap>
+    </thing>
+  <thing id="btLockpick" name="Focus: Dexterity (Lock PIcking)" description="Opening locks without using keys." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foLockpick"></bootstrap>
+    </thing>
+  <thing id="btRiding" name="Focus: Dexterity (Riding)" description="Directing a mount such as a horse or pony." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foRiding"></bootstrap>
+    </thing>
+  <thing id="btStaves" name="Focus: Dexterity (Staves)" description="Fighting with weapons from the Staves Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foStaves"></bootstrap>
+    </thing>
+  <thing id="btStealth" name="Focus: Dexterity (Stealth)" description="Sneaking about quietly and out of sight." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foStealth"></bootstrap>
+    </thing>
+  <thing id="btAcrobat" name="Focus: Dexterity (Acrobatics)" description="Executing gymnastic, balancing, and tumbling maneuvers." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foAcrobat"></bootstrap>
+    </thing>
+  <thing id="btBows" name="Focus: Dexterity (Bows)" description="Fighting with weapons from the Bows Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foBows"></bootstrap>
+    </thing>
+  <thing id="btCalligra" name="Focus: Dexterity (Calligraphy)" description="Writing with artful penmanship." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCalligra"></bootstrap>
+    </thing>
+  <thing id="btTraps" name="Focus: Dexterity (Traps)" description="Detecting and disarming traps and other mechanical devices." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foTraps"></bootstrap>
+    </thing>
+  <thing id="btArcLance" name="Focus: Magic (Arcane Lance)" description="Using the mage&apos;s class power of the same name." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foArcLance"></bootstrap>
+    </thing>
+  <thing id="btBlood" name="Focus: Magic (Blood)" description="Understanding the btrbidden art of Blood Magic." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foBlood"></bootstrap>
+    </thing>
+  <thing id="btCreation" name="Focus: Magic (Creation)" description="Understanding the secrets of the Creation school of magic." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foCreation"></bootstrap>
+    </thing>
+  <thing id="btEntropy" name="Focus: Magic (Entropy)" description="Understanding the secrets of the Entropy school of magic." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foEntropy"></bootstrap>
+    </thing>
+  <thing id="btPrimal" name="Focus: Magic (Primal)" description="Understanding the secrets of the Primal school of magic." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foPrimal"></bootstrap>
+    </thing>
+  <thing id="btSpirit" name="Focus: Magic (Spirit)" description="Understanding the secrets of the Spirit school of magic." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSpirit"></bootstrap>
+    </thing>
+  <thing id="btEmpathy" name="Focus: Perception (Empathy)" description="Discerning the feelings and emotions of others." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foEmpathy"></bootstrap>
+    </thing>
+  <thing id="btDeteDark" name="Focus: Perception (Detect Darkspawn)" description="A Grey Warden&apos;s ability to sense nearby darkspawn. Only Grey Wardens can take this bkgTable." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foDeteDark"></bootstrap>
+    </thing>
+  <thing id="btHearing" name="Focus: Perception (Hearing)" description="Using your auditory sense." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foHearing"></bootstrap>
+    </thing>
+  <thing id="btSearch" name="Focus: Perception (Searching)" description="Finding things that are hidden or obscured." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSearch"></bootstrap>
+    </thing>
+  <thing id="btSeeing" name="Focus: Perception (Seeing)" compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSeeing"></bootstrap>
+    </thing>
+  <thing id="btSmelling" name="Focus: Perception (Smelling)" description="Using your olfactory sense." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSmelling"></bootstrap>
+    </thing>
+  <thing id="btJumping" name="Focus: Strength (Jumping)" description="Springing and leaping." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foJumping"></bootstrap>
+    </thing>
+  <thing id="btLances" name="Focus: Strength (Lances)" description="Fighting with weapons of the Lances Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foLances"></bootstrap>
+    </thing>
+  <thing id="btMight" name="Focus: Strength (Might)" description="Perbtrming feats of raw power, such as lifting or holding up heavy objects." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foMight"></bootstrap>
+    </thing>
+  <thing id="btPolearms" name="Focus: Strength (Polearms)" description="Fighting with weapons of the Polearms Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foPolearms"></bootstrap>
+    </thing>
+  <thing id="btSmithing" name="Focus: Strength (Smithing)" description="btrging metal items, from weapons to jewelry." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSmithing"></bootstrap>
+    </thing>
+  <thing id="btSpears" name="Focus: Strength (Spears)" description="Fighting with weapons from the Spears Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foSpears"></bootstrap>
+    </thing>
+  <thing id="btIntimida" name="Focus: Strength (Intimidation)" description="Overawing with physical presence and threats." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foIntimida"></bootstrap>
+    </thing>
+  <thing id="btAxes" name="Focus: Strength (Axes)" description="Fighting with weapons from the Axes Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foAxes"></bootstrap>
+    </thing>
+  <thing id="btBludgeon" name="Focus: Strength (Bludgeons)" description="Fighting with weapons from the Bludgeons Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foBludgeon"></bootstrap>
+    </thing>
+  <thing id="btDriving" name="Focus: Strength (Driving)" description="Directing and guiding carts, carriages, and other wheeled vehicles." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foDriving"></bootstrap>
+    </thing>
+  <thing id="btHeaBlade" name="Focus: Strength (Heavy Blades)" description="Fighting with weapons from the Heavy Blades Group." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foHeaBlade"></bootstrap>
+    </thing>
+  <thing id="btFaith" name="Focus: Willpower (Faith)" description="Deriving inner strength through spiritual or moral belief." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foFaith"></bootstrap>
+    </thing>
+  <thing id="btMorale" name="Focus: Willpower (Morale)" description="Maintaining good spirits and confidence in yourself or your group. NPCs tend to use this bkgTable more than Player Characters." compset="bkgTable" uniqueness="unique">
+    <bootstrap thing="foMorale"></bootstrap>
+    </thing>
+  </document>

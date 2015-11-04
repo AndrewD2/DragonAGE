@@ -139,6 +139,23 @@
     </thing> 
     
   <thing
+    id="resAttr"
+    name="Attribute"
+    compset="Resource">
+    
+    <fieldval field="resObject" value ="Attribute" />
+    <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="2000"><![CDATA[
+      if (hero.tagis[source.PtBuyAttr] <> 0) then
+        field[resMax].value += 10
+        endif
+      ]]></eval>
+      
+    </thing>
+    
+    
+  <thing
     id="resBkGrnd"
     name="Background"
     compset="Resource">
@@ -147,7 +164,24 @@
     
     <tag group="Helper" tag="Bootstrap" />
     
-    </thing>     
+    </thing>  
+
+  <thing
+    id="resBgTbl"
+    name="Background Table"
+    compset="Resource">
+    <fieldval field="resObject" value="Background Table"/>
+    <fieldval field="resMax" value="2" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="2000"><![CDATA[
+      if (hero.tagis[source.PtBuyBkg] <> 0) then
+        field[resMax].value += 1
+        endif
+      ]]></eval>
+    
+    </thing>      
     
   <thing
     id="resTalents"
@@ -207,6 +241,30 @@
     field[resMax].value += hero.findchild[Class].field[cFocusTot].arrayvalue[arraylevel]
     ]]></eval>
     </thing>
+    
+  <thing
+    id="resSrtFoc"
+    name="Starting Focus"
+    compset="Resource">
+    <fieldval field="resObject" value="Starting Focus" />
+    <fieldval field="resMax" value="1" />
+    <tag group="Helper" tag="Bootstrap" />
+    </thing>
+    
+  <thing
+    id="resSocial"
+    name="Social Class"
+    compset="Resource">
+    <fieldval field="resObject" value="Social Class" />
+    
+    <tag group="Helper" tag="Bootstrap" />
+    
+    <eval index="1" phase="PostLevels" priority="2000"><![CDATA[
+      if (hero.tagis[AllowSoc.?] <> 0) then
+        field[resMax].value += 1
+        endif
+        ]]></eval>
+    </thing>    
 
   <thing
     id="resSpec"
@@ -330,5 +388,123 @@
     <tag group="Helper" tag="CustomItem"/>
     <tag group="explicit" tag="50"/>
     </thing>
+    
+  <thing
+    id="HitManaPt"
+    name="Hit Point/Mana Points"
+    compset="HitManaPt">
+    <tag group="Helper" tag="Bootstrap" />
+    </thing>
+    
+  <thing
+    id="bkgCom"
+    name="Communications +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrCom] += 1
+      ]]></eval>
+      
+    </thing>
+    
+  <thing
+    id="bkgCon"
+    name="Constitution +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrCon] += 1
+      ]]></eval>
+      
+    </thing>    
 
+  <thing
+    id="bkgCun"
+    name="Cunning +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrCun] += 1
+      ]]></eval>
+      
+    </thing>
+    
+  <thing
+    id="bkgDex"
+    name="Dexterity +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrDex] += 1
+      ]]></eval>
+      
+    </thing>    
+    
+  <thing
+    id="bkgMag"
+    name="Magic +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrMag] += 1
+      ]]></eval>
+      
+    </thing>
+    
+  <thing
+    id="bkgPer"
+    name="Perception +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrPer] += 1
+      ]]></eval>
+      
+    </thing>
+    
+  <thing
+    id="bkgStr"
+    name="Strength +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrStr] += 1
+      ]]></eval>
+      
+    </thing>
+    
+  <thing
+    id="bkgWill"
+    name="Willpower +1"
+    uniqueness="unique"
+    compset="bkgTable">
+    
+    <tag group="Helper" tag="AttrBonus" />
+    
+    <eval index="1" phase="PreLevels" priority="5000"><![CDATA[
+      #bkgattrbonus[attrWill] += 1
+      ]]></eval>
+      
+    </thing>
     </document>
